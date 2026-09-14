@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>GPU 플랫폼 자동화 및 관리 범위 매트릭스</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Quartz 4"/><meta property="og:title" content="GPU 플랫폼 자동화 및 관리 범위 매트릭스"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="GPU 플랫폼 자동화 및 관리 범위 매트릭스"/><meta name="twitter:description" content="GPU 플랫폼 자동화 및 관리 범위 매트릭스 목적 구축형 GPU 플랫폼이 물리 서버·네트워크·스토리지·펌웨어에서 작업 스케줄러·학습·MLOps·모델 서빙까지 어느 범위를 직접 제공하는지 비교한다."/><meta property="og:description" content="GPU 플랫폼 자동화 및 관리 범위 매트릭스 목적 구축형 GPU 플랫폼이 물리 서버·네트워크·스토리지·펌웨어에서 작업 스케줄러·학습·MLOps·모델 서빙까지 어느 범위를 직접 제공하는지 비교한다."/><meta property="og:image:alt" content="GPU 플랫폼 자동화 및 관리 범위 매트릭스 목적 구축형 GPU 플랫폼이 물리 서버·네트워크·스토리지·펌웨어에서 작업 스케줄러·학습·MLOps·모델 서빙까지 어느 범위를 직접 제공하는지 비교한다."/><meta property="twitter:domain" content="quartz.jzhao.xyz"/><meta property="og:url" content="https://quartz.jzhao.xyz/gpu_cluster/comparisons/gpu-platform-automation-management-matrix"/><meta property="twitter:url" content="https://quartz.jzhao.xyz/gpu_cluster/comparisons/gpu-platform-automation-management-matrix"/><link rel="icon" href="../../static/icon.png"/><meta name="description" content="GPU 플랫폼 자동화 및 관리 범위 매트릭스 목적 구축형 GPU 플랫폼이 물리 서버·네트워크·스토리지·펌웨어에서 작업 스케줄러·학습·MLOps·모델 서빙까지 어느 범위를 직접 제공하는지 비교한다."/><meta name="generator" content="Quartz"/><link href="../../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvamJod2FuZy93aWtpL3RlY2gvX3B1Ymxpc2hpbmcvLmNhY2hlL3F1YXJ0ei9xdWFydHovY29tcG9uZW50cy9zdHlsZXMiLCJzb3VyY2VzIjpbIm1lcm1haWQuaW5saW5lLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUdGO0VBQ0U7OztBQUtGO0VBQ0U7RUFDQTs7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7QUFHRjtFQUNFOztBQUlGO0VBQ0U7RUFDQTtFQUNBIiwic291cmNlc0NvbnRlbnQiOlsiLmV4cGFuZC1idXR0b24ge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsb2F0OiByaWdodDtcbiAgcGFkZGluZzogMC40cmVtO1xuICBtYXJnaW46IDAuM3JlbTtcbiAgcmlnaHQ6IDA7IC8vIE5PVEU6IHJpZ2h0IHdpbGwgYmUgc2V0IGluIG1lcm1haWQuaW5saW5lLnRzXG4gIGNvbG9yOiB2YXIoLS1ncmF5KTtcbiAgYm9yZGVyLWNvbG9yOiB2YXIoLS1kYXJrKTtcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xuICBib3JkZXI6IDFweCBzb2xpZDtcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xuICBvcGFjaXR5OiAwO1xuICB0cmFuc2l0aW9uOiAwLjJzO1xuXG4gICYgPiBzdmcge1xuICAgIGZpbGw6IHZhcigtLWxpZ2h0KTtcbiAgICBmaWx0ZXI6IGNvbnRyYXN0KDAuMyk7XG4gIH1cblxuICAmOmhvdmVyIHtcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgYm9yZGVyLWNvbG9yOiB2YXIoLS1zZWNvbmRhcnkpO1xuICB9XG5cbiAgJjpmb2N1cyB7XG4gICAgb3V0bGluZTogMDtcbiAgfVxufVxuXG5wcmUge1xuICAmOmhvdmVyID4gLmV4cGFuZC1idXR0b24ge1xuICAgIG9wYWNpdHk6IDE7XG4gICAgdHJhbnNpdGlvbjogMC4ycztcbiAgfVxufVxuXG4jbWVybWFpZC1jb250YWluZXIge1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIGNvbnRhaW46IGxheW91dDtcbiAgei1pbmRleDogOTk5O1xuICBsZWZ0OiAwO1xuICB0b3A6IDA7XG4gIHdpZHRoOiAxMDB2dztcbiAgaGVpZ2h0OiAxMDB2aDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgZGlzcGxheTogbm9uZTtcbiAgYmFja2Ryb3AtZmlsdGVyOiBibHVyKDRweCk7XG4gIGJhY2tncm91bmQ6IHJnYmEoMCwgMCwgMCwgMC41KTtcblxuICAmLmFjdGl2ZSB7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICB9XG5cbiAgJiA+ICNtZXJtYWlkLXNwYWNlIHtcbiAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XG4gICAgcG9zaXRpb246IGZpeGVkO1xuICAgIHRvcDogNTAlO1xuICAgIGxlZnQ6IDUwJTtcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcbiAgICBoZWlnaHQ6IDgwdmg7XG4gICAgd2lkdGg6IDgwdnc7XG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcblxuICAgICYgPiAubWVybWFpZC1jb250ZW50IHtcbiAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICAgIHRyYW5zZm9ybS1vcmlnaW46IDAgMDtcbiAgICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjFzIGVhc2U7XG4gICAgICBvdmVyZmxvdzogdmlzaWJsZTtcbiAgICAgIG1pbi1oZWlnaHQ6IDIwMHB4O1xuICAgICAgbWluLXdpZHRoOiAyMDBweDtcblxuICAgICAgcHJlIHtcbiAgICAgICAgbWFyZ2luOiAwO1xuICAgICAgICBib3JkZXI6IG5vbmU7XG4gICAgICB9XG5cbiAgICAgIHN2ZyB7XG4gICAgICAgIG1heC13aWR0aDogbm9uZTtcbiAgICAgICAgaGVpZ2h0OiBhdXRvO1xuICAgICAgfVxuICAgIH1cblxuICAgICYgPiAubWVybWFpZC1jb250cm9scyB7XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICBib3R0b206IDIwcHg7XG4gICAgICByaWdodDogMjBweDtcbiAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICBnYXA6IDhweDtcbiAgICAgIHBhZGRpbmc6IDhweDtcbiAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICBib3JkZXItcmFkaXVzOiA2cHg7XG4gICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLCAwLCAwLCAwLjEpO1xuICAgICAgei1pbmRleDogMjtcblxuICAgICAgLm1lcm1haWQtY29udHJvbC1idXR0b24ge1xuICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICAgICAgd2lkdGg6IDMycHg7XG4gICAgICAgIGhlaWdodDogMzJweDtcbiAgICAgICAgcGFkZGluZzogMDtcbiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xuICAgICAgICBjb2xvcjogdmFyKC0tZGFyayk7XG4gICAgICAgIGJvcmRlci1yYWRpdXM6IDRweDtcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgICBmb250LXNpemU6IDE2cHg7XG4gICAgICAgIGZvbnQtZmFtaWx5OiB2YXIoLS1ib2R5Rm9udCk7XG4gICAgICAgIHRyYW5zaXRpb246IGFsbCAwLjJzIGVhc2U7XG5cbiAgICAgICAgJjpob3ZlciB7XG4gICAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgfVxuXG4gICAgICAgICY6YWN0aXZlIHtcbiAgICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMXB4KTtcbiAgICAgICAgfVxuXG4gICAgICAgIC8vIFN0eWxlIHRoZSByZXNldCBidXR0b24gZGlmZmVyZW50bHlcbiAgICAgICAgJjpudGgtY2hpbGQoMikge1xuICAgICAgICAgIHdpZHRoOiBhdXRvO1xuICAgICAgICAgIHBhZGRpbmc6IDAgMTJweDtcbiAgICAgICAgICBmb250LXNpemU6IDE0cHg7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cbiJdfQ== */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://quartz.jzhao.xyz/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://quartz.jzhao.xyz/gpu_cluster/comparisons/gpu-platform-automation-management-matrix-og-image.webp"/><meta property="og:image:url" content="https://quartz.jzhao.xyz/gpu_cluster/comparisons/gpu-platform-automation-management-matrix-og-image.webp"/><meta name="twitter:image" content="https://quartz.jzhao.xyz/gpu_cluster/comparisons/gpu-platform-automation-management-matrix-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="gpu_cluster/comparisons/gpu-platform-automation-management-matrix"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../..">Quartz 4</a></h2><div class="spacer mobile-only"></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-254"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-254" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../gpu_cluster/">GPU Cluster Optimization</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../gpu_cluster/comparisons/">comparisons</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>GPU 플랫폼 자동화 및 관리 범위 매트릭스</a></div></nav><h1 class="article-title">GPU 플랫폼 자동화 및 관리 범위 매트릭스</h1><p show-comma="true" class="content-meta"><time datetime="2026-08-12T15:00:00.000Z">Aug 13, 2026</time><span>15 min read</span></p><ul class="tags"><li><a href="../../tags/gpu" class="internal tag-link">gpu</a></li><li><a href="../../tags/scheduling" class="internal tag-link">scheduling</a></li><li><a href="../../tags/resource-management" class="internal tag-link">resource-management</a></li><li><a href="../../tags/automation" class="internal tag-link">automation</a></li><li><a href="../../tags/governance" class="internal tag-link">governance</a></li><li><a href="../../tags/storage" class="internal tag-link">storage</a></li></ul></div></div><article class="popover-hint"><h1 id="gpu-플랫폼-자동화-및-관리-범위-매트릭스">GPU 플랫폼 자동화 및 관리 범위 매트릭스<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#gpu-플랫폼-자동화-및-관리-범위-매트릭스" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="목적">목적<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#목적" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>구축형 GPU 플랫폼이 <strong>물리 서버·네트워크·스토리지·펌웨어</strong>에서 <strong>작업 스케줄러·학습·MLOps·모델 서빙</strong>까지 어느 범위를 직접 제공하는지 비교한다. 이 표는 제품 성능이나 품질 순위가 아니라 <strong>제품 경계와 자동화 책임의 깊이</strong>를 나타낸다. 전체 시장과 목적별 후보는 <a href="../../gpu_cluster/comparisons/on-premise-gpu-cluster-platforms" class="internal alias" data-slug="gpu_cluster/comparisons/on-premise-gpu-cluster-platforms">on-premise-gpu-cluster-platforms</a>, OpenShift AI의 상세 경계는 <a href="../../gpu_cluster/entities/red-hat-openshift-ai" class="internal alias" data-slug="gpu_cluster/entities/red-hat-openshift-ai">red-hat-openshift-ai</a>를 함께 본다.</p>
+<h2 id="평가-기준">평가 기준<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#평가-기준" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>등급</th><th>의미</th></tr></thead><tbody><tr><td><strong>3 직접·통합</strong></td><td>제품 또는 명시된 통합 스택의 핵심 기능으로 설치·구성·관측·수명주기를 관리</td></tr><tr><td><strong>2 지원·연계</strong></td><td>인증 구성, Operator, 플러그인, 파트너 제품 또는 하위 기반을 통해 지원하지만 별도 구성요소·라이선스가 필요할 수 있음</td></tr><tr><td><strong>1 제한적·인접</strong></td><td>가시성, API 연계, VM/컨테이너 추상화 등 일부만 제공하며 해당 영역의 실질 관리자는 아님</td></tr><tr><td><strong>0 범위 밖</strong></td><td>해당 제품이 제공하지 않으며 고객·OEM·다른 플랫폼 책임</td></tr><tr><td><strong>? 확인 필요</strong></td><td>공개 자료만으로 직접 관리 범위와 지원 경계를 확정하기 어려움</td></tr></tbody></table></div>
+<blockquote>
+<p><strong>해석 주의:</strong> HPE/Dell의 “AI Factory”처럼 여러 SKU·서비스를 묶는 포트폴리오는 구매 BOM에 따라 점수가 달라진다. VMware·Nutanix는 기반 VCF/NCP까지 포함한 경우, OpenShift AI는 OpenShift Container Platform과 GPU Operator를 함께 배치한 경우를 기준으로 한다. NVIDIA 제품은 BCM, Mission Control, Run:ai를 서로 다른 제품으로 분리했다.</p>
+</blockquote>
+<h2 id="1-물리-인프라-및-플랫폼-자동화-범위">1. 물리 인프라 및 플랫폼 자동화 범위<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-물리-인프라-및-플랫폼-자동화-범위" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>플랫폼</th><th style="text-align:right;">서버/베어메탈 프로비저닝</th><th style="text-align:right;">펌웨어·드라이버 수명주기</th><th style="text-align:right;">물리 네트워크·패브릭</th><th style="text-align:right;">스토리지 인프라</th><th style="text-align:right;">K8s/Slurm 기반</th><th style="text-align:right;">HW+SW 턴키</th><th>인프라 관점 요약</th></tr></thead><tbody><tr><td><strong>Red Hat OpenShift AI</strong></td><td style="text-align:right;">1</td><td style="text-align:right;">2</td><td style="text-align:right;">1</td><td style="text-align:right;">2</td><td style="text-align:right;">3</td><td style="text-align:right;">1</td><td>OCP·Operator·CSI/CNI를 통한 지원은 강하지만 서버·스위치·스토리지 장비 자체 관리는 별도</td></tr><tr><td><strong>NVIDIA Base Command Manager</strong></td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">2</td><td style="text-align:right;">1</td><td style="text-align:right;">3</td><td style="text-align:right;">1</td><td>GPU/HPC 노드 프로비저닝·관리·모니터링과 Kubernetes/Slurm 기반 구축에 강함</td></tr><tr><td><strong>NVIDIA Mission Control</strong></td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">2</td><td style="text-align:right;">3</td><td style="text-align:right;">2</td><td>랙 규모 AI factory 운영, 구성·상태·복구와 workload-ready infrastructure를 통합</td></tr><tr><td><strong>NVIDIA Run:ai</strong></td><td style="text-align:right;">0</td><td style="text-align:right;">1</td><td style="text-align:right;">0</td><td style="text-align:right;">1</td><td style="text-align:right;">2</td><td style="text-align:right;">0</td><td>기존 Kubernetes/GPU 인프라 위의 워크로드·GPU 제어면이며 물리 인프라는 범위 밖</td></tr><tr><td><strong>HPE Private Cloud AI</strong></td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td>HPE 서버·스토리지·네트워크·NVIDIA AI 소프트웨어를 엔지니어드 턴키 시스템으로 제공</td></tr><tr><td><strong>Dell AI Factory with NVIDIA</strong></td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">2</td><td style="text-align:right;">3</td><td>PowerEdge·PowerScale·네트워크·NVIDIA 스택의 검증 포트폴리오; 실제 자동화 깊이는 BOM 의존</td></tr><tr><td><strong>VMware Private AI Foundation</strong></td><td style="text-align:right;">2</td><td style="text-align:right;">2</td><td style="text-align:right;">2</td><td style="text-align:right;">2</td><td style="text-align:right;">3</td><td style="text-align:right;">2</td><td>VCF 기반 VM/Kubernetes·vGPU·SDDC 수명주기는 강하나 물리 장비는 OEM 관리가 병행됨</td></tr><tr><td><strong>Nutanix GPT-in-a-Box</strong></td><td style="text-align:right;">2</td><td style="text-align:right;">2</td><td style="text-align:right;">2</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td>HCI 기반 compute·storage·virtualization과 GPU/AI 서비스를 통합; fabric 특화 범위는 제한</td></tr><tr><td><strong>SUSE AI Factory</strong></td><td style="text-align:right;">1</td><td style="text-align:right;">2</td><td style="text-align:right;">1</td><td style="text-align:right;">2</td><td style="text-align:right;">3</td><td style="text-align:right;">2</td><td>기존 Linux/Kubernetes에 통합되는 소프트웨어 스택; 물리 장비 관리는 OEM/파트너 책임</td></tr><tr><td><strong>Canonical Charmed Kubeflow</strong></td><td style="text-align:right;">0</td><td style="text-align:right;">1</td><td style="text-align:right;">0</td><td style="text-align:right;">2</td><td style="text-align:right;">3</td><td style="text-align:right;">1</td><td>Kubernetes와 스토리지/관측 통합은 가능하나 물리 서버·펌웨어·패브릭 관리는 범위 밖</td></tr><tr><td><strong>IBM watsonx.ai Software</strong></td><td style="text-align:right;">0</td><td style="text-align:right;">1</td><td style="text-align:right;">0</td><td style="text-align:right;">2</td><td style="text-align:right;">2</td><td style="text-align:right;">1</td><td>OpenShift에 설치되는 AI 계층; OCP·GPU Operator·스토리지 등 기반은 별도 선행 조건</td></tr><tr><td><strong>ClearML</strong></td><td style="text-align:right;">1</td><td style="text-align:right;">1</td><td style="text-align:right;">0</td><td style="text-align:right;">1</td><td style="text-align:right;">2</td><td style="text-align:right;">1</td><td>cloud/on-prem compute를 GPUaaS로 추상화하지만 물리 장비 수명주기 제품은 아님</td></tr><tr><td><strong>Domino</strong></td><td style="text-align:right;">0</td><td style="text-align:right;">1</td><td style="text-align:right;">0</td><td style="text-align:right;">2</td><td style="text-align:right;">2</td><td style="text-align:right;">1</td><td>기존 K8s/VPC/on-prem 인프라 위 데이터과학 플랫폼; 기반 인프라 운영은 외부 책임</td></tr><tr><td><strong>Rafay GPU PaaS</strong></td><td style="text-align:right;">2</td><td style="text-align:right;">1</td><td style="text-align:right;">1</td><td style="text-align:right;">1</td><td style="text-align:right;">3</td><td style="text-align:right;">2</td><td>Kubernetes·VM·Slurm·bare metal을 셀프서비스로 오케스트레이션하나 장비 펌웨어/패브릭은 별도</td></tr><tr><td><strong>오픈소스 직접 구축</strong></td><td style="text-align:right;">2</td><td style="text-align:right;">2</td><td style="text-align:right;">2</td><td style="text-align:right;">2</td><td style="text-align:right;">3</td><td style="text-align:right;">0</td><td>기능 조합은 가능하지만 통합·검증·지원·수명주기 책임이 전부 내부 플랫폼 팀에 남음</td></tr></tbody></table></div>
+<h3 id="물리-인프라-해석">물리 인프라 해석<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#물리-인프라-해석" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>가장 넓은 턴키 범위:</strong> HPE Private Cloud AI, Dell AI Factory, Nutanix GPT-in-a-Box. 단, Dell은 단일 고정 제품보다 포트폴리오 성격이 강하므로 BOM·구축서비스·Day-2 책임을 계약서에서 확인한다.</li>
+<li><strong>대규모 NVIDIA GPU/HPC 클러스터 제어:</strong> Base Command Manager와 Mission Control. Mission Control이 랙·패브릭·운영 복구까지 더 넓은 AI factory 제어면을 지향하고, BCM은 이기종 클러스터 프로비저닝과 Kubernetes/Slurm 관리 기반에 강하다.</li>
+<li><strong>AI 플랫폼이지만 물리 관리 제품은 아님:</strong> OpenShift AI, watsonx.ai, Charmed Kubeflow, Domino, ClearML. 서버·스위치·스토리지·펌웨어는 OEM 또는 하위 플랫폼이 담당한다.</li>
+<li><strong>가상화/HCI 기반 통합:</strong> VMware와 Nutanix는 VM·스토리지·가상 네트워크와 GPU 자원을 기존 사설 클라우드 운영 모델에 통합하는 데 유리하다.</li>
+</ul>
+<h2 id="2-작업-스케줄링학습서빙-자동화-범위">2. 작업 스케줄링·학습·서빙 자동화 범위<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-작업-스케줄링학습서빙-자동화-범위" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>플랫폼</th><th style="text-align:right;">GPU 작업 스케줄링·공유</th><th style="text-align:right;">분산 학습 환경</th><th style="text-align:right;">Notebook/개발환경</th><th style="text-align:right;">Pipeline·MLOps</th><th style="text-align:right;">모델 서빙·추론</th><th style="text-align:right;">멀티테넌시·거버넌스</th><th style="text-align:right;">관측·자동복구</th><th>AI 운영 관점 요약</th></tr></thead><tbody><tr><td><strong>Red Hat OpenShift AI</strong></td><td style="text-align:right;">2</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">2</td><td>AI 개발·학습·서빙 수명주기가 강하며 고급 GPU fairness/pooling은 별도 스케줄러 검토</td></tr><tr><td><strong>NVIDIA Base Command Manager</strong></td><td style="text-align:right;">2</td><td style="text-align:right;">2</td><td style="text-align:right;">1</td><td style="text-align:right;">1</td><td style="text-align:right;">1</td><td style="text-align:right;">1</td><td style="text-align:right;">3</td><td>인프라/스케줄러 기반은 강하지만 상위 MLOps·개발 포털은 다른 제품과 조합</td></tr><tr><td><strong>NVIDIA Mission Control</strong></td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">2</td><td style="text-align:right;">2</td><td style="text-align:right;">2</td><td style="text-align:right;">2</td><td style="text-align:right;">3</td><td>인프라와 개발자 workload orchestration·복구를 연결하나 완전한 MLOps는 별도 계층 가능</td></tr><tr><td><strong>NVIDIA Run:ai</strong></td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">2</td><td style="text-align:right;">2</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td>GPU pooling·정책·분산 workload·inference scaling에 특화; 실험 추적 등은 외부 도구 연계</td></tr><tr><td><strong>HPE Private Cloud AI</strong></td><td style="text-align:right;">2</td><td style="text-align:right;">2</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td>엔터프라이즈 GenAI 개발·RAG·서빙을 빠르게 운영; 초대규모 사전학습은 별도 설계 검증</td></tr><tr><td><strong>Dell AI Factory with NVIDIA</strong></td><td style="text-align:right;">2</td><td style="text-align:right;">3</td><td style="text-align:right;">2</td><td style="text-align:right;">2</td><td style="text-align:right;">3</td><td style="text-align:right;">2</td><td style="text-align:right;">3</td><td>NVIDIA AI Enterprise와 파트너 플랫폼에 따라 AI 기능이 달라지는 조합형 포트폴리오</td></tr><tr><td><strong>VMware Private AI Foundation</strong></td><td style="text-align:right;">2</td><td style="text-align:right;">2</td><td style="text-align:right;">3</td><td style="text-align:right;">2</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td>vGPU·VM 기반 셀프서비스, RAG·추론과 기업 통제가 강점; GPU-aware scheduling은 Run:ai 등 연계</td></tr><tr><td><strong>Nutanix GPT-in-a-Box</strong></td><td style="text-align:right;">2</td><td style="text-align:right;">1</td><td style="text-align:right;">2</td><td style="text-align:right;">2</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td>사내 LLM 배포·endpoint·RAG 중심; 대규모 분산 사전학습보다 엔터프라이즈 추론에 적합</td></tr><tr><td><strong>SUSE AI Factory</strong></td><td style="text-align:right;">2</td><td style="text-align:right;">2</td><td style="text-align:right;">2</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td>개방형 Kubernetes·GitOps·보안·관측 기반 프라이빗 AI; 세부 도구 조합 확인 필요</td></tr><tr><td><strong>Canonical Charmed Kubeflow</strong></td><td style="text-align:right;">2</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">2</td><td style="text-align:right;">2</td><td style="text-align:right;">2</td><td>Kubeflow 전체 ML 수명주기와 운영 가능한 패키징; GPU 효율 정책은 K8s 확장 도구 필요</td></tr><tr><td><strong>IBM watsonx.ai Software</strong></td><td style="text-align:right;">1</td><td style="text-align:right;">2</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td>모델 개발·서빙·IBM 거버넌스 생태계가 강하고 GPU/클러스터 기반은 OpenShift 의존</td></tr><tr><td><strong>ClearML</strong></td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td>실험·파이프라인·GPUaaS·serving을 폭넓게 제공; 엔터프라이즈 기능·GPU slicing은 에디션 확인</td></tr><tr><td><strong>Domino</strong></td><td style="text-align:right;">2</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td>대기업 데이터과학 셀프서비스·재현성·거버넌스가 강하며 물리 클러스터 관리는 외부</td></tr><tr><td><strong>Rafay GPU PaaS</strong></td><td style="text-align:right;">3</td><td style="text-align:right;">2</td><td style="text-align:right;">2</td><td style="text-align:right;">2</td><td style="text-align:right;">2</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td>인프라를 멀티테넌트 GPU PaaS로 서비스화하는 데 강하고 MLOps 기능은 도구 연계 중심</td></tr><tr><td><strong>오픈소스 직접 구축</strong></td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">3</td><td style="text-align:right;">2</td><td style="text-align:right;">2</td><td>모든 기능 구현은 가능하지만 제품 하나의 통합 SLA·업그레이드·지원 경계가 없음</td></tr></tbody></table></div>
+<h3 id="ai-운영-해석">AI 운영 해석<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ai-운영-해석" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>GPU 공유와 스케줄링 최적화:</strong> Run:ai, ClearML, Rafay가 강하다. <a href="../../gpu_cluster/concepts/resource-allocation" class="internal alias" data-slug="gpu_cluster/concepts/resource-allocation">resource-allocation</a>의 quota·borrowing·MIG/time-slicing 요구를 실제 에디션에서 확인한다.</li>
+<li><strong>엔드투엔드 AI 개발/MLOps:</strong> OpenShift AI, Charmed Kubeflow, ClearML, Domino, watsonx.ai가 중심 후보이다. 제품별 강점은 각각 기업 Kubernetes 통합, 오픈 Kubeflow 운영, GPUaaS 결합, 데이터과학 거버넌스, IBM 생태계다.</li>
+<li><strong>사내 GenAI 추론·RAG 턴키:</strong> HPE, VMware, Nutanix가 상대적으로 강하다. “학습 지원”이 대규모 multi-node pretraining을 의미하는지, 파인튜닝·RAG 개발을 의미하는지 구분해야 한다.</li>
+<li><strong>인프라 중심 제품:</strong> BCM과 Mission Control은 AI workflow 기반을 강하게 제공하지만 실험 추적·모델 레지스트리·승인 workflow까지 하나의 MLOps 제품으로 간주하면 안 된다.</li>
+</ul>
+<h2 id="3-경영아키텍처-요약-장표">3. 경영·아키텍처 요약 장표<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-경영아키텍처-요약-장표" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>플랫폼 유형</th><th>대표 제품</th><th>물리→AI 전체 범위</th><th>자동화 강점</th><th>고객이 별도로 책임질 영역</th><th>가장 적합한 조직</th></tr></thead><tbody><tr><td><strong>AI Factory 턴키</strong></td><td>HPE Private Cloud AI, Dell AI Factory</td><td>넓음</td><td>검증 BOM, 구축·수명주기, 단일 지원 창구</td><td>세부 스케줄링·MLOps 선택, 벤더 종속·비용 통제</td><td>빠른 납기와 책임 일원화가 우선인 기업</td></tr><tr><td><strong>GPU/HPC 인프라 제어</strong></td><td>NVIDIA BCM, Mission Control</td><td>물리·클러스터 중심으로 넓음</td><td>노드·GPU·패브릭·K8s/Slurm·복구</td><td>상위 데이터과학 포털, 실험·모델 거버넌스</td><td>대규모 NVIDIA 학습/HPC 운영 조직</td></tr><tr><td><strong>GPU 오케스트레이션</strong></td><td>Run:ai, Rafay</td><td>중간 계층 집중</td><td>GPU pooling, quota, priority, 멀티테넌트 GPUaaS</td><td>서버·펌웨어·스토리지 장비 및 일부 MLOps</td><td>여러 팀/고객에게 GPU를 서비스하는 조직</td></tr><tr><td><strong>기업 Kubernetes AI 플랫폼</strong></td><td>OpenShift AI, SUSE AI Factory</td><td>컨테이너부터 AI까지 넓음</td><td>보안·GitOps·AI 개발·서빙 통합</td><td>물리 장비·fabric, 고급 GPU scheduler 선택</td><td>Kubernetes를 기업 표준으로 운영하는 조직</td></tr><tr><td><strong>사설 클라우드/HCI AI</strong></td><td>VMware PAI, Nutanix GPT-in-a-Box</td><td>가상화/HCI부터 AI까지 넓음</td><td>기존 VM·스토리지·운영 도구 재사용</td><td>초대규모 학습 fabric·전용 scheduler 검증</td><td>VMware/Nutanix 기설치 기업</td></tr><tr><td><strong>MLOps·데이터과학 플랫폼</strong></td><td>Charmed Kubeflow, watsonx.ai, ClearML, Domino</td><td>AI 계층 중심</td><td>개발·학습·pipeline·serving·governance</td><td>물리 인프라와 하위 K8s 수명주기</td><td>AI 사용자 경험과 모델 통제가 핵심인 조직</td></tr><tr><td><strong>직접 통합</strong></td><td>Slurm/K8s+Kubeflow/KServe 등</td><td>설계상 가장 넓음</td><td>자유도·이식성·맞춤 최적화</td><td>통합·보안·업그레이드·SLA 전부</td><td>강한 내부 플랫폼 엔지니어링 팀</td></tr></tbody></table></div>
+<h2 id="4-권장-조합-패턴">4. 권장 조합 패턴<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4-권장-조합-패턴" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>목표</th><th>권장 조합</th><th>이유</th></tr></thead><tbody><tr><td>대규모 학습 + 기업 AI 포털</td><td>BCM/Mission Control + Slurm/Kubernetes + OpenShift AI 또는 Domino</td><td>물리/HPC 운영과 상위 AI 수명주기를 분리</td></tr><tr><td>OpenShift 기반 다팀 GPU 공유</td><td>OpenShift AI + GPU Operator + Run:ai 또는 Kueue/Volcano</td><td>RHOAI의 AI 경험에 고급 quota·fairness·gang scheduling 보완</td></tr><tr><td>빠른 사내 GenAI 구축</td><td>HPE Private Cloud AI 또는 Dell AI Factory + 선택 MLOps</td><td>검증 인프라와 구축서비스로 납기를 단축</td></tr><tr><td>기존 VMware 환경 확장</td><td>VMware Private AI Foundation + 필요 시 Run:ai</td><td>VCF/vGPU 운영을 유지하면서 GPU-aware scheduling 강화</td></tr><tr><td>오픈소스 중심 구축</td><td>Kubernetes/Slurm + Charmed Kubeflow + KServe + MLflow + 관측 스택</td><td>벤더 종속을 줄이되 내부 통합 책임을 명시</td></tr><tr><td>GPUaaS 사업/내부 서비스</td><td>Rafay 또는 Run:ai/ClearML + 기존 OEM/BCM 기반</td><td>셀프서비스, 멀티테넌시, quota·사용량 관리 중심</td></tr></tbody></table></div>
+<h2 id="5-rfp에서-점수-대신-확인할-증거">5. RFP에서 점수 대신 확인할 증거<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#5-rfp에서-점수-대신-확인할-증거" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li><strong>물리 관리:</strong> 실제 지원 서버·BMC·스위치·NIC·스토리지 목록과 firmware/driver upgrade 데모를 요구한다.</li>
+<li><strong>Day-2 운영:</strong> rolling upgrade, drain, 장애 GPU 격리, 노드 재이미징과 자동복구의 책임 주체를 확인한다.</li>
+<li><strong>스케줄링:</strong> gang scheduling, topology awareness, preemption, quota borrowing, MIG/time-slicing을 대표 workload로 시험한다.</li>
+<li><strong>학습:</strong> “training 지원”을 single-node fine-tuning과 multi-node pretraining으로 나누고 NCCL/collective 성능과 checkpoint restart를 검증한다.</li>
+<li><strong>서빙:</strong> vLLM/NIM/KServe 등 실제 runtime, autoscaling, model loading, TTFT·tail latency와 multi-model isolation을 측정한다.</li>
+<li><strong>턴키:</strong> 하드웨어·네트워크·스토리지·플랫폼·AI software별 SKU, 라이선스와 장애 escalation 경계를 하나의 RACI로 받는다.</li>
+<li><strong>에어갭:</strong> 설치뿐 아니라 image/catalog/model mirror, 취약점 패치, 업그레이드와 rollback을 오프라인으로 시연하게 한다.</li>
+<li><strong>관측·과금:</strong> GPU active와 단순 allocation을 구분하고 사용자·프로젝트별 GPU-hour, queue wait, 실패·선점 비용을 추적하는지 확인한다.</li>
+</ol>
+<h2 id="관련-문서">관련 문서<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#관련-문서" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><a href="../../gpu_cluster/comparisons/on-premise-gpu-cluster-platforms" class="internal alias" data-slug="gpu_cluster/comparisons/on-premise-gpu-cluster-platforms">on-premise-gpu-cluster-platforms</a></li>
+<li><a href="../../gpu_cluster/entities/red-hat-openshift-ai" class="internal alias" data-slug="gpu_cluster/entities/red-hat-openshift-ai">red-hat-openshift-ai</a></li>
+<li><a href="../../gpu_cluster/concepts/cluster-scheduling" class="internal alias" data-slug="gpu_cluster/concepts/cluster-scheduling">cluster-scheduling</a></li>
+<li><a href="../../gpu_cluster/concepts/resource-allocation" class="internal alias" data-slug="gpu_cluster/concepts/resource-allocation">resource-allocation</a></li>
+<li><a href="../../gpu_cluster/concepts/gang-scheduling" class="internal alias" data-slug="gpu_cluster/concepts/gang-scheduling">gang-scheduling</a></li>
+<li><a href="../../gpu_cluster/concepts/cluster-monitoring" class="internal alias" data-slug="gpu_cluster/concepts/cluster-monitoring">cluster-monitoring</a></li>
+<li><a href="../../gpu_cluster/concepts/storage-solutions" class="internal alias" data-slug="gpu_cluster/concepts/storage-solutions">storage-solutions</a></li>
+</ul>
+<h2 id="출처">출처<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#출처" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><a href="https://www.redhat.com/en/technologies/cloud-computing/openshift/openshift-ai" class="external">Red Hat OpenShift AI<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.nvidia.com/en-us/data-center/base-command-manager" class="external">NVIDIA Base Command Manager<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.nvidia.com/en-us/data-center/mission-control" class="external">NVIDIA Mission Control<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.nvidia.com/en-us/software/run-ai" class="external">NVIDIA Run:ai<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.hpe.com/us/en/private-cloud-ai.html" class="external">HPE Private Cloud AI<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.dell.com/en-us/lp/nvidia-ai" class="external">Dell AI Factory with NVIDIA<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://blogs.vmware.com/cloud-foundation/2024/03/18/announcing-initial-availability-of-vmware-private-ai-foundation-with-nvidia" class="external">VMware Private AI Foundation with NVIDIA<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.nutanix.com/blog/gpt-in-a-box-2-is-here" class="external">Nutanix GPT-in-a-Box 2.0<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.suse.com/products/ai" class="external">SUSE AI Factory<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://canonical.com/blog/charmed-kubeflow-vs-kubeflow" class="external">Canonical Charmed Kubeflow<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.ibm.com/docs/en/software-hub/5.3.x?topic=watsonxai-installing" class="external">IBM watsonx.ai Software installation<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://clear.ml/docs/latest/docs" class="external">ClearML platform<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://domino.ai/platform" class="external">Domino Enterprise AI Platform<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://rafay.co/platform/rafay-paas" class="external">Rafay Platform<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" class="toc-header" aria-controls="toc-131" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-1" class="toc-content overflow"><li class="depth-0"><a href="#gpu-플랫폼-자동화-및-관리-범위-매트릭스" data-for="gpu-플랫폼-자동화-및-관리-범위-매트릭스">GPU 플랫폼 자동화 및 관리 범위 매트릭스</a></li><li class="depth-1"><a href="#목적" data-for="목적">목적</a></li><li class="depth-1"><a href="#평가-기준" data-for="평가-기준">평가 기준</a></li><li class="depth-1"><a href="#1-물리-인프라-및-플랫폼-자동화-범위" data-for="1-물리-인프라-및-플랫폼-자동화-범위">1. 물리 인프라 및 플랫폼 자동화 범위</a></li><li class="depth-2"><a href="#물리-인프라-해석" data-for="물리-인프라-해석">물리 인프라 해석</a></li><li class="depth-1"><a href="#2-작업-스케줄링학습서빙-자동화-범위" data-for="2-작업-스케줄링학습서빙-자동화-범위">2. 작업 스케줄링·학습·서빙 자동화 범위</a></li><li class="depth-2"><a href="#ai-운영-해석" data-for="ai-운영-해석">AI 운영 해석</a></li><li class="depth-1"><a href="#3-경영아키텍처-요약-장표" data-for="3-경영아키텍처-요약-장표">3. 경영·아키텍처 요약 장표</a></li><li class="depth-1"><a href="#4-권장-조합-패턴" data-for="4-권장-조합-패턴">4. 권장 조합 패턴</a></li><li class="depth-1"><a href="#5-rfp에서-점수-대신-확인할-증거" data-for="5-rfp에서-점수-대신-확인할-증거">5. RFP에서 점수 대신 확인할 증거</a></li><li class="depth-1"><a href="#관련-문서" data-for="관련-문서">관련 문서</a></li><li class="depth-1"><a href="#출처" data-for="출처">출처</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>Backlinks</h3><ul id="list-2" class="overflow"><li><a href="../../gpu_cluster/comparisons/on-premise-gpu-cluster-platforms" class="internal">구축형 GPU 클러스터 플랫폼 비교</a></li><li><a href="../../gpu_cluster/" class="internal">GPU Cluster Optimization</a></li><li><a href="../../gpu_cluster/maps/gpu-cluster-index" class="internal">GPU Cluster Optimization Topic Map</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../../postscript.js" type="module" data-persist="true"></script></html>

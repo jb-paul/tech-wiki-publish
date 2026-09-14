@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>Palantir Foundry Ontology 심층 분석</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Quartz 4"/><meta property="og:title" content="Palantir Foundry Ontology 심층 분석"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Palantir Foundry Ontology 심층 분석"/><meta name="twitter:description" content="Palantir Foundry Ontology 심층 분석 한눈에 보기 Palantir Foundry Ontology는 기업 데이터를 업무 객체로 정규화하고 관계·행동·코드 로직·권한을 하나의 실행 계층에 결합한 operational ontology다."/><meta property="og:description" content="Palantir Foundry Ontology 심층 분석 한눈에 보기 Palantir Foundry Ontology는 기업 데이터를 업무 객체로 정규화하고 관계·행동·코드 로직·권한을 하나의 실행 계층에 결합한 operational ontology다."/><meta property="og:image:alt" content="Palantir Foundry Ontology 심층 분석 한눈에 보기 Palantir Foundry Ontology는 기업 데이터를 업무 객체로 정규화하고 관계·행동·코드 로직·권한을 하나의 실행 계층에 결합한 operational ontology다."/><meta property="twitter:domain" content="quartz.jzhao.xyz"/><meta property="og:url" content="https://quartz.jzhao.xyz/agentic_ai/applications/palantir-foundry-ontology"/><meta property="twitter:url" content="https://quartz.jzhao.xyz/agentic_ai/applications/palantir-foundry-ontology"/><link rel="icon" href="../../static/icon.png"/><meta name="description" content="Palantir Foundry Ontology 심층 분석 한눈에 보기 Palantir Foundry Ontology는 기업 데이터를 업무 객체로 정규화하고 관계·행동·코드 로직·권한을 하나의 실행 계층에 결합한 operational ontology다."/><meta name="generator" content="Quartz"/><link href="../../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvamJod2FuZy93aWtpL3RlY2gvX3B1Ymxpc2hpbmcvLmNhY2hlL3F1YXJ0ei9xdWFydHovY29tcG9uZW50cy9zdHlsZXMiLCJzb3VyY2VzIjpbIm1lcm1haWQuaW5saW5lLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUdGO0VBQ0U7OztBQUtGO0VBQ0U7RUFDQTs7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7QUFHRjtFQUNFOztBQUlGO0VBQ0U7RUFDQTtFQUNBIiwic291cmNlc0NvbnRlbnQiOlsiLmV4cGFuZC1idXR0b24ge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsb2F0OiByaWdodDtcbiAgcGFkZGluZzogMC40cmVtO1xuICBtYXJnaW46IDAuM3JlbTtcbiAgcmlnaHQ6IDA7IC8vIE5PVEU6IHJpZ2h0IHdpbGwgYmUgc2V0IGluIG1lcm1haWQuaW5saW5lLnRzXG4gIGNvbG9yOiB2YXIoLS1ncmF5KTtcbiAgYm9yZGVyLWNvbG9yOiB2YXIoLS1kYXJrKTtcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xuICBib3JkZXI6IDFweCBzb2xpZDtcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xuICBvcGFjaXR5OiAwO1xuICB0cmFuc2l0aW9uOiAwLjJzO1xuXG4gICYgPiBzdmcge1xuICAgIGZpbGw6IHZhcigtLWxpZ2h0KTtcbiAgICBmaWx0ZXI6IGNvbnRyYXN0KDAuMyk7XG4gIH1cblxuICAmOmhvdmVyIHtcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgYm9yZGVyLWNvbG9yOiB2YXIoLS1zZWNvbmRhcnkpO1xuICB9XG5cbiAgJjpmb2N1cyB7XG4gICAgb3V0bGluZTogMDtcbiAgfVxufVxuXG5wcmUge1xuICAmOmhvdmVyID4gLmV4cGFuZC1idXR0b24ge1xuICAgIG9wYWNpdHk6IDE7XG4gICAgdHJhbnNpdGlvbjogMC4ycztcbiAgfVxufVxuXG4jbWVybWFpZC1jb250YWluZXIge1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIGNvbnRhaW46IGxheW91dDtcbiAgei1pbmRleDogOTk5O1xuICBsZWZ0OiAwO1xuICB0b3A6IDA7XG4gIHdpZHRoOiAxMDB2dztcbiAgaGVpZ2h0OiAxMDB2aDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgZGlzcGxheTogbm9uZTtcbiAgYmFja2Ryb3AtZmlsdGVyOiBibHVyKDRweCk7XG4gIGJhY2tncm91bmQ6IHJnYmEoMCwgMCwgMCwgMC41KTtcblxuICAmLmFjdGl2ZSB7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICB9XG5cbiAgJiA+ICNtZXJtYWlkLXNwYWNlIHtcbiAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XG4gICAgcG9zaXRpb246IGZpeGVkO1xuICAgIHRvcDogNTAlO1xuICAgIGxlZnQ6IDUwJTtcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcbiAgICBoZWlnaHQ6IDgwdmg7XG4gICAgd2lkdGg6IDgwdnc7XG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcblxuICAgICYgPiAubWVybWFpZC1jb250ZW50IHtcbiAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICAgIHRyYW5zZm9ybS1vcmlnaW46IDAgMDtcbiAgICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjFzIGVhc2U7XG4gICAgICBvdmVyZmxvdzogdmlzaWJsZTtcbiAgICAgIG1pbi1oZWlnaHQ6IDIwMHB4O1xuICAgICAgbWluLXdpZHRoOiAyMDBweDtcblxuICAgICAgcHJlIHtcbiAgICAgICAgbWFyZ2luOiAwO1xuICAgICAgICBib3JkZXI6IG5vbmU7XG4gICAgICB9XG5cbiAgICAgIHN2ZyB7XG4gICAgICAgIG1heC13aWR0aDogbm9uZTtcbiAgICAgICAgaGVpZ2h0OiBhdXRvO1xuICAgICAgfVxuICAgIH1cblxuICAgICYgPiAubWVybWFpZC1jb250cm9scyB7XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICBib3R0b206IDIwcHg7XG4gICAgICByaWdodDogMjBweDtcbiAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICBnYXA6IDhweDtcbiAgICAgIHBhZGRpbmc6IDhweDtcbiAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICBib3JkZXItcmFkaXVzOiA2cHg7XG4gICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLCAwLCAwLCAwLjEpO1xuICAgICAgei1pbmRleDogMjtcblxuICAgICAgLm1lcm1haWQtY29udHJvbC1idXR0b24ge1xuICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICAgICAgd2lkdGg6IDMycHg7XG4gICAgICAgIGhlaWdodDogMzJweDtcbiAgICAgICAgcGFkZGluZzogMDtcbiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xuICAgICAgICBjb2xvcjogdmFyKC0tZGFyayk7XG4gICAgICAgIGJvcmRlci1yYWRpdXM6IDRweDtcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgICBmb250LXNpemU6IDE2cHg7XG4gICAgICAgIGZvbnQtZmFtaWx5OiB2YXIoLS1ib2R5Rm9udCk7XG4gICAgICAgIHRyYW5zaXRpb246IGFsbCAwLjJzIGVhc2U7XG5cbiAgICAgICAgJjpob3ZlciB7XG4gICAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgICAgfVxuXG4gICAgICAgICY6YWN0aXZlIHtcbiAgICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMXB4KTtcbiAgICAgICAgfVxuXG4gICAgICAgIC8vIFN0eWxlIHRoZSByZXNldCBidXR0b24gZGlmZmVyZW50bHlcbiAgICAgICAgJjpudGgtY2hpbGQoMikge1xuICAgICAgICAgIHdpZHRoOiBhdXRvO1xuICAgICAgICAgIHBhZGRpbmc6IDAgMTJweDtcbiAgICAgICAgICBmb250LXNpemU6IDE0cHg7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cbiJdfQ== */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://quartz.jzhao.xyz/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://quartz.jzhao.xyz/agentic_ai/applications/palantir-foundry-ontology-og-image.webp"/><meta property="og:image:url" content="https://quartz.jzhao.xyz/agentic_ai/applications/palantir-foundry-ontology-og-image.webp"/><meta name="twitter:image" content="https://quartz.jzhao.xyz/agentic_ai/applications/palantir-foundry-ontology-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="agentic_ai/applications/palantir-foundry-ontology"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../..">Quartz 4</a></h2><div class="spacer mobile-only"></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-66"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-66" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../agentic_ai/">Agentic AI</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../agentic_ai/applications/">applications</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>Palantir Foundry Ontology 심층 분석</a></div></nav><h1 class="article-title">Palantir Foundry Ontology 심층 분석</h1><p show-comma="true" class="content-meta"><time datetime="2026-08-12T15:00:00.000Z">Aug 13, 2026</time><span>23 min read</span></p><ul class="tags"><li><a href="../../tags/agentic-ai" class="internal tag-link">agentic-ai</a></li><li><a href="../../tags/ontology" class="internal tag-link">ontology</a></li><li><a href="../../tags/knowledge-graph" class="internal tag-link">knowledge-graph</a></li><li><a href="../../tags/enterprise" class="internal tag-link">enterprise</a></li><li><a href="../../tags/architecture" class="internal tag-link">architecture</a></li><li><a href="../../tags/governance" class="internal tag-link">governance</a></li><li><a href="../../tags/tool-use" class="internal tag-link">tool-use</a></li></ul></div></div><article class="popover-hint"><h1 id="palantir-foundry-ontology-심층-분석">Palantir Foundry Ontology 심층 분석<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#palantir-foundry-ontology-심층-분석" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="한눈에-보기">한눈에 보기<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#한눈에-보기" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Palantir Foundry Ontology는 기업 데이터를 업무 객체로 정규화하고 관계·행동·코드 로직·권한을 하나의 실행 계층에 결합한 <strong>operational ontology</strong>다.</p>
+<p>전통적인 OWL/RDF 지식표현 언어의 구현체라기보다 Palantir 플랫폼에 종속된 운영 의미 계층에 가깝다. Palantir는 이를 조직의 digital twin으로 설명하며, 데이터셋과 모델을 object type, property, link type, action type으로 매핑한다.<a href="https://www.palantir.com/docs/foundry/ontology/core-concepts" class="external">Core concepts<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p>핵심 차별점은 명사형 의미 모델만 제공하지 않는다는 것이다.</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="text" data-theme="github-light github-dark"><code data-language="text" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>Datasets·Virtual tables·Models</span></span>
+<span data-line><span>        ↓ mapping / indexing</span></span>
+<span data-line><span>Object types ─ Properties ─ Link types      ← semantic layer</span></span>
+<span data-line><span>        ↓             ↓</span></span>
+<span data-line><span>Actions ─ Functions ─ Automations           ← kinetic layer</span></span>
+<span data-line><span>        ↓</span></span>
+<span data-line><span>Permissions·Policies·Audit·Branch review    ← governance layer</span></span>
+<span data-line><span>        ↓</span></span>
+<span data-line><span>Workshop·Quiver·OSDK Apps·AIP/MCP Agents</span></span></code></pre></figure>
+<p>Palantir 공식 아키텍처는 이를 <code>data + logic + action + security</code>의 통합으로 설명한다. 즉 ontology가 데이터를 설명하는 schema에 머무르지 않고, 조직이 어떤 상태를 읽고 어떤 변경을 허용하는지를 운영 계약으로 만든다.<a href="https://www.palantir.com/docs/foundry/architecture-center/ontology-system" class="external">Ontology system<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p>다만 <strong>“Ontology를 자동 생성한다”는 의미로 평가하면 자동화 수준은 중간 정도</strong>다. 데이터 열을 property로 자동 매핑하고 metadata·API name·표준 편집 action을 생성하며, Pipeline Builder와 Palantir MCP로 구조 생성을 자동화할 수 있다. 반면 어떤 업무 개념을 object로 만들지, relation의 의미와 방향, canonical identity, scope, 권한 및 action semantics를 자율적으로 발견·승인하는 end-to-end ontology learning은 공식 문서에서 확인되지 않았다.</p>
+<h2 id="1-palantir가-말하는-ontology의-구성">1. Palantir가 말하는 Ontology의 구성<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-palantir가-말하는-ontology의-구성" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="11-object-type과-object">1.1 Object type과 object<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#11-object-type과-object" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Object type은 현실의 entity 또는 event에 대한 schema이고 object는 그 instance다. 데이터셋에 비유하면 object type은 dataset, object는 row, property는 column, link type은 join과 대응한다.<a href="https://www.palantir.com/docs/foundry/ontology/core-concepts" class="external">Core concepts<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="text" data-theme="github-light github-dark"><code data-language="text" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>Object type: WorkOrder</span></span>
+<span data-line><span>Properties: id, status, priority, plannedStart</span></span>
+<span data-line><span>Link type: WorkOrder AFFECTS Equipment</span></span>
+<span data-line><span>Primary key: id</span></span>
+<span data-line><span>Title key: workOrderNumber</span></span></code></pre></figure>
+<p>이 비유는 초기 이해에는 유용하지만 Palantir Ontology가 단순 ORM이라는 뜻은 아니다. 동일 object type에는 rich metadata, application view, action, function, security policy와 writeback 동작이 연결된다.</p>
+<h3 id="12-property와-shared-property">1.2 Property와 shared property<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#12-property와-shared-property" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Property는 object의 특성을 정의한다. Shared property는 여러 object type에서 공통으로 사용하는 property metadata를 중앙 관리한다. 데이터 열과 자동 매핑할 수 있지만 안정적인 ID, API name, type, description, owner, primary/title key를 정하는 것은 설계 책임으로 남는다.</p>
+<h3 id="13-link-type">1.3 Link type<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#13-link-type" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Link type은 두 object type 사이 관계의 schema다. 실제 link는 두 object instance 사이의 관계다. 데이터 join에서 출발할 수 있지만 업무적으로는 relation 이름, 방향, cardinality, identity와 갱신 책임을 결정해야 한다.</p>
+<p>예를 들어 <code>WorkOrder AFFECTS Equipment</code>와 <code>Equipment HAS_WORK_ORDER WorkOrder</code>는 탐색 방향과 사용자 표현이 다르다. 단순히 동일 키를 가진 열을 발견하는 것만으로 적절한 relation semantics가 자동 결정되지는 않는다.</p>
+<h3 id="14-action-type">1.4 Action type<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#14-action-type" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Action type은 object, property value, link에 한 번에 적용할 변경과 side effect를 정의한다. 예를 들어 <code>Assign Employee</code>는 role property 변경, 새 manager link 생성, 알림 전송, 실행 권한 검사를 하나의 transaction에 묶을 수 있다.<a href="https://www.palantir.com/docs/foundry/action-types/overview" class="external">Action types<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p>이것이 Palantir Ontology가 전통적 semantic model과 가장 크게 갈리는 부분이다. <code>Object</code>가 명사라면 <code>Action</code>은 허용된 동사이며, ontology가 읽기 모델과 command surface를 함께 제공한다.</p>
+<h3 id="15-function과-automation">1.5 Function과 automation<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#15-function과-automation" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Function은 object·object set을 입력으로 받고 property를 읽거나 business logic을 실행하는 code-based logic이다. 단순 rule, ML model, LLM 호출, optimizer, multi-step orchestration이 action과 결합될 수 있다.<a href="https://www.palantir.com/docs/foundry/ontology/core-concepts" class="external">Core concepts<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> Function의 수정은 Ontology Manager가 아니라 Functions Code Repository에서 이뤄지고 version·usage·observability가 별도로 관리된다.<a href="https://www.palantir.com/docs/foundry/ontology-manager/overview" class="external">Ontology Manager<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<h3 id="16-interface">1.6 Interface<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#16-interface" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Interface는 object type의 shape와 capability를 정의하여 여러 object type에 polymorphism을 제공한다. 서로 다른 객체가 공통 property·capability 계약을 구현하게 해 application과 agent가 구체 type에 덜 의존하도록 한다.</p>
+<h2 id="2-온톨로지를-만드는-실제-절차">2. 온톨로지를 만드는 실제 절차<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-온톨로지를-만드는-실제-절차" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="21-ontology-manager-중심의-gui-방식">2.1 Ontology Manager 중심의 GUI 방식<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#21-ontology-manager-중심의-gui-방식" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Ontology Manager는 object type, link type, action type을 만들고 datasource를 연결하며 indexing·application 반영 상태를 조사하는 관리 도구다.<a href="https://www.palantir.com/docs/foundry/ontology-manager/overview" class="external">Ontology Manager<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p>대표적인 object type 생성 흐름은 다음과 같다.</p>
+<ol>
+<li>업무 use case와 object 후보를 정한다.</li>
+<li>Foundry dataset·virtual table 등 backing datasource를 선택한다.</li>
+<li>wizard가 metadata와 property 후보를 채운다.</li>
+<li>primary key와 title key를 지정한다.</li>
+<li>필요 없는 column/property를 제거하고 이름·설명을 정제한다.</li>
+<li>object 사이 link type을 정의한다.</li>
+<li>표준 편집 action을 선택적으로 생성한다.</li>
+<li>project와 permission을 지정한다.</li>
+<li>변경을 staging하고 검토한 뒤 main 또는 branch에 저장한다.</li>
+<li>indexing과 downstream application 동작을 확인한다.</li>
+</ol>
+<h3 id="22-datasource-기반-bootstrapping">2.2 Datasource 기반 bootstrapping<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#22-datasource-기반-bootstrapping" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>기존 datasource를 선택하면 wizard가 다음을 자동화한다.<a href="https://www.palantir.com/docs/foundry/object-link-types/create-object-type" class="external">Create an object type<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<ul>
+<li>object type metadata 초기화</li>
+<li>모든 column을 property로 매핑</li>
+<li>column 이름으로 property ID·display name·base type 추론</li>
+<li>display name에서 object/property API name 추론</li>
+<li>선택적으로 표준 edit action 생성</li>
+</ul>
+<p>수동 편집 화면에서도 <code>Add all unmapped columns as new properties</code>로 남은 열을 일괄 property로 만들 수 있다. Struct property는 <code>Automap all</code>을 통해 모든 하위 column을 자동 매핑할 수 있다.<a href="https://www.palantir.com/docs/foundry/object-link-types/struct-automapping" class="external">Struct automapping<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p>이 기능은 <strong>schema bootstrapping</strong>에는 강하지만 semantic conceptualization은 아니다. 소스 열의 이름과 base type으로 초안을 만들 뿐, 다음 판단은 builder가 담당한다.</p>
+<ul>
+<li>row가 entity인지 event인지</li>
+<li>어떤 source가 authoritative system of record인지</li>
+<li>business identity와 primary key가 무엇인지</li>
+<li>동일 개념을 merge할지 분리할지</li>
+<li>relation의 의미·방향·cardinality가 무엇인지</li>
+<li>status를 property로 둘지 별도 object로 만들지</li>
+<li>action이 허용할 상태 전이와 side effect가 무엇인지</li>
+</ul>
+<h3 id="23-pipeline-builder-방식">2.3 Pipeline Builder 방식<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#23-pipeline-builder-방식" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Pipeline Builder는 batch와 streaming dataset에서 object와 link output을 만들 수 있다. output guidance를 먼저 선언하여 pipeline이 목표 ontology 구조에 맞는 데이터를 생성하도록 설계할 수 있다.<a href="https://www.palantir.com/docs/foundry/pipeline-builder/outputs-add-ontology-output" class="external">Add an Ontology output<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p>하지만 streaming-backed object에서는 Pipeline Builder로 edit를 활성화하거나 many-to-many link를 구성할 수 없는 제한이 공식 문서에 명시돼 있다. 따라서 ingestion 자동화 범위와 operational write model의 범위를 구분해야 한다.</p>
+<h3 id="24-ontology-as-code와-importexport">2.4 Ontology-as-code와 import/export<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#24-ontology-as-code와-importexport" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Object type은 SuperRepo에서 Ontology-as-code로 정의할 수 있으며, Ontology Manager에서 만든 object type도 SuperRepo로 가져올 수 있다.<a href="https://www.palantir.com/docs/foundry/object-link-types/create-object-type" class="external">Create an object type<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p>Ontology Manager의 working state는 JSON으로 export하여 code/text editor에서 수정하고 다시 import할 수 있다. 그러나 Palantir는 <strong>exported JSON schema가 시간에 따라 바뀔 수 있으므로 의존하지 말라</strong>고 명시한다. Conditional formatting rule 등 일부 artifact는 다른 ontology로 이동하지 못할 수 있다.<a href="https://www.palantir.com/docs/foundry/ontology-manager/export-import" class="external">Export/import<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p>따라서 JSON export는 편집·복제 수단이지 안정적인 W3C 교환 표준이나 vendor-neutral ontology artifact로 간주하면 안 된다.</p>
+<h2 id="3-생성-자동화-수준-평가">3. 생성 자동화 수준 평가<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-생성-자동화-수준-평가" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="31-자동화-수준표">3.1 자동화 수준표<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#31-자동화-수준표" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>공정</th><th>Palantir에서 확인된 자동화</th><th style="text-align:right;">수준</th><th>남는 인간 판단</th></tr></thead><tbody><tr><td>Datasource 연결</td><td>wizard와 Pipeline Builder</td><td style="text-align:right;">높음</td><td>authoritative source, refresh 전략</td></tr><tr><td>Column → property</td><td>전체 자동 매핑, 이름·base type 추론</td><td style="text-align:right;">높음</td><td>의미, 단위, description, 민감도</td></tr><tr><td>Object metadata</td><td>backing source에서 초기값 생성</td><td style="text-align:right;">중간</td><td>domain name, 경계, owner</td></tr><tr><td>Primary/title key</td><td>후보를 UI에서 선택</td><td style="text-align:right;">낮음~중간</td><td>identity 안정성·중복·수명</td></tr><tr><td>Link 생성</td><td>key mapping과 pipeline output 지원</td><td style="text-align:right;">중간</td><td>relation 의미·방향·cardinality</td></tr><tr><td>Standard edit action</td><td>object 생성 wizard에서 선택적 생성</td><td style="text-align:right;">중간</td><td>상태 전이·권한·side effect</td></tr><tr><td>Complex function/action</td><td>code·rule·orchestration 지원</td><td style="text-align:right;">낮음</td><td>설계·구현·검증 책임</td></tr><tr><td>Version·review</td><td>branch, proposal, checks, approval</td><td style="text-align:right;">높음</td><td>reviewer 판단·migration 승인</td></tr><tr><td>LLM/Agent용 tool 노출</td><td>OSDK·Ontology MCP 자동 생성/노출</td><td style="text-align:right;">높음</td><td>allowlist·restriction·risk gate</td></tr><tr><td>자연어/문서 → domain ontology</td><td>공식 문서에서 일반적 end-to-end 기능 확인 안 됨</td><td style="text-align:right;">낮음/미확인</td><td>scope·concept·axiom 전체</td></tr><tr><td>OWL axiom·SHACL shape 자동 생성</td><td>공식 문서에서 확인 안 됨</td><td style="text-align:right;">미확인</td><td>formal semantics·reasoning</td></tr></tbody></table></div>
+<h3 id="32-palantir-mcp와-ai-지원">3.2 Palantir MCP와 AI 지원<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#32-palantir-mcp와-ai-지원" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>공식 문서는 두 MCP 계층을 구분한다.<a href="https://www.palantir.com/docs/foundry/ontology-mcp/overview" class="external">Ontology MCP<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<ul>
+<li><strong>Ontology MCP:</strong> ontology 소비자인 외부 agent가 object를 읽고, query function을 호출하며, 미리 정의된 action을 실행하도록 노출한다. Application restriction과 permission으로 실행 범위를 제한한다.</li>
+<li><strong>Palantir MCP:</strong> ontology builder가 dataset, transform, object type, link type, action type 등 구조를 개발·수정하도록 70개 이상의 tool을 제공한다. 실제 production ontology data를 쓰는 도구와는 분리된다.</li>
+</ul>
+<p>이는 생성 자동화에 중요한 진전이다. Coding agent가 tool을 조합해 ontology resource를 만들 수 있기 때문이다. 그러나 MCP는 <strong>capability surface</strong>이지 올바른 ontology를 스스로 발견하는 학습 알고리즘이 아니다. Agent가 만들어도 source-to-concept 근거, identity, modelling quality와 downstream regression은 별도 검토가 필요하다.</p>
+<h3 id="33-자동화-성숙도-판정">3.3 자동화 성숙도 판정<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#33-자동화-성숙도-판정" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>위키의 <a href="../../agentic_ai/research/automatic-ontology-learning-with-llms" class="internal alias" data-slug="agentic_ai/research/automatic-ontology-learning-with-llms">automatic-ontology-learning-with-llms</a> 분류에 대입하면 Palantir는 다음에 가깝다.</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="text" data-theme="github-light github-dark"><code data-language="text" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>부분 과제 자동화       █████  강함</span></span>
+<span data-line><span>Datasource→schema 초안 █████  강함</span></span>
+<span data-line><span>요구사항→ontology 초안 ██░░░  제한적/외부 Agent 구현 가능</span></span>
+<span data-line><span>문서→TBox 자동 추출    █░░░░  일반 기능 확인 안 됨</span></span>
+<span data-line><span>TBox+ABox 공동 운영    ████░  platform 내부에서는 강함</span></span>
+<span data-line><span>검증·승인·배포 공정    █████  강함</span></span>
+<span data-line><span>무인 end-to-end 생성   █░░░░  입증되지 않음</span></span></code></pre></figure>
+<p>따라서 Palantir의 강점은 <strong>AI가 ontology를 발명하는 것보다 사람이 정의한 운영 의미를 data pipeline, application, action, agent까지 일관되게 전파하고 관리하는 것</strong>이다.</p>
+<h2 id="4-관리와-변경-통제">4. 관리와 변경 통제<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4-관리와-변경-통제" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="41-working-state와-save">4.1 Working state와 save<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#41-working-state와-save" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Ontology Manager의 변경은 먼저 사용자 로컬 work-in-progress state에 쌓인다. Save 전에 모든 edit, error, warning을 검토하며, error는 저장을 차단하지만 warning은 확인 후 저장할 수 있다. 다른 사용자가 먼저 저장했으면 최신 변경을 update하고 conflict를 해결해야 한다.<a href="https://www.palantir.com/docs/foundry/ontology-manager/save-changes" class="external">Save changes<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p>Property ID나 primary key 변경은 application, object edit, link에 파괴적 영향을 줄 수 있다. Palantir 문서는 primary key를 deterministic하게 만들고 중복을 검사하라고 명시한다. 이 점은 ontology evolution이 단순 metadata 편집이 아니라 state migration이라는 것을 보여준다.</p>
+<h3 id="42-global-branching과-proposal">4.2 Global Branching과 proposal<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#42-global-branching과-proposal" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Ontology는 Global Branching과 통합되어 별도 branch에서 object, action, link, interface, shared property를 수정할 수 있다. Main 변경을 rebase하고 conflict를 resource 단위로 해결한 뒤 proposal을 만들어 review·merge한다.<a href="https://www.palantir.com/docs/foundry/ontologies/branching-ontology" class="external">Branching<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p>Ontology proposal은 Pull Request와 유사하다. Resource별 task, reviewer, approval policy, changelog, branch preview/index 상태를 제공한다.<a href="https://www.palantir.com/docs/foundry/ontologies/review-ontology-proposals" class="external">Review proposals<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p>관리 성숙도는 높지만 제한도 있다.</p>
+<ul>
+<li>ontology 변경이 들어간 branch는 자동 rebase가 아니라 수동 rebase가 필요할 수 있다.</li>
+<li>backing datasource 삭제·교체와 conditional formatting 충돌은 merge 실패를 유발할 수 있다.</li>
+<li>Pipeline Builder에서 만든 object type은 branch의 Ontology Manager에서 수정할 수 없다.</li>
+<li>reviewer 지정이 ontology resource 전체 proposal에 적용되는 구조적 제약이 있다.</li>
+</ul>
+<h3 id="43-권한-모델">4.3 권한 모델<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#43-권한-모델" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>신규 ontology에서는 ontology resource를 Compass project에 파일처럼 저장하고 project role로 view·edit·manage 권한을 정한다.<a href="https://www.palantir.com/docs/foundry/object-permissioning/ontology-permissions" class="external">Ontology permissions<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p>중요한 구분은 다음과 같다.</p>
+<ul>
+<li><strong>Object type 권한:</strong> schema와 metadata를 볼 수 있는가</li>
+<li><strong>Object data 권한:</strong> backing datasource 또는 object/property security policy를 통과하는가</li>
+<li><strong>Link edit:</strong> link type과 연결된 양쪽 object type에 edit 권한이 필요한가</li>
+<li><strong>Action edit/run:</strong> action type과 action이 수정하는 모든 resource의 권한을 충족하는가</li>
+<li><strong>Classification:</strong> project classification과 declassification 권한을 충족하는가</li>
+</ul>
+<p>이 구조는 ontology가 agent tool registry로 쓰일 때도 중요하다. Tool이 발견된 것과 그 action을 실행할 권한이 있는 것은 별개다.</p>
+<h3 id="44-관측성과-소비자-영향">4.4 관측성과 소비자 영향<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#44-관측성과-소비자-영향" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Ontology Manager는 action과 function의 usage, version, 최근 실행 지표 및 monitoring rule을 보여준다. Function 소비 application을 찾아 version upgrade를 추적할 수 있다. Branch preview로 object indexing 결과를 production merge 전에 시험할 수도 있다.</p>
+<p>이것은 일반적인 ontology editor보다 운영 친화적이다. 반면 OWL reasoner consistency, SHACL conformance, competency question coverage 같은 formal ontology 품질 지표가 중심에 있다는 증거는 공식 문서에서 확인되지 않았다. Palantir의 검증은 주로 platform resource validity, indexing, application compatibility, permission 및 runtime 동작에 초점이 있다.</p>
+<h2 id="5-owlrdf-ontology와의-차이">5. OWL/RDF Ontology와의 차이<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#5-owlrdf-ontology와의-차이" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>차원</th><th>Palantir Foundry Ontology</th><th>OWL/RDF 중심 Ontology</th></tr></thead><tbody><tr><td>주목적</td><td>기업 운영 application과 decision/action 실행</td><td>공유 어휘, 의미 명세, 추론·연합</td></tr><tr><td>핵심 요소</td><td>object/property/link/action/function/interface/security</td><td>class/property/individual/axiom/restriction</td></tr><tr><td>데이터 연결</td><td>Foundry datasource와 materialization에 깊게 결합</td><td>RDF graph 또는 mapping을 통해 독립 가능</td></tr><tr><td>제약·추론</td><td>application rule, function, permission, indexing 중심</td><td>OWL semantics, reasoner, SHACL 중심</td></tr><tr><td>변경</td><td>working state, Global Branching, proposal, project policy</td><td>ontology version IRI, Git, registry 등 구현별 상이</td></tr><tr><td>행동</td><td>1급 action type과 side effect</td><td>보통 ontology 외부 workflow가 담당</td></tr><tr><td>AI 사용</td><td>OSDK/MCP로 typed object·action을 tool로 제공</td><td>SPARQL·RDF API·custom tool로 연결</td></tr><tr><td>이식성</td><td>Palantir platform 종속성이 큼</td><td>W3C 표준 기반 상호운용 가능</td></tr></tbody></table></div>
+<p>Palantir의 <code>link type</code>을 OWL object property, <code>object type</code>을 OWL class와 완전히 동일시하면 안 된다. Palantir는 운영 schema와 application contract에 초점을 두며, OWL의 open-world semantics, description logic axiom, 자동 entailment와 같은 기능을 동일하게 제공한다고 공식 문서가 주장하지 않는다.</p>
+<h2 id="6-agentic-ai에서의-가치">6. Agentic AI에서의 가치<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#6-agentic-ai에서의-가치" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Palantir Ontology는 agent loop의 다음 지점에 직접 결합된다.</p>
+<ol>
+<li><strong>Observe:</strong> 원시 datasource를 typed object와 link로 정규화한다.</li>
+<li><strong>Retrieve:</strong> object set과 query function으로 허용된 업무 context를 선택한다.</li>
+<li><strong>Plan:</strong> interface·function·action metadata로 가능한 동작을 제한한다.</li>
+<li><strong>Act:</strong> 미리 정의된 action을 통해 transaction과 side effect를 실행한다.</li>
+<li><strong>Verify:</strong> action rule, permission, application restriction, runtime monitoring으로 결과를 통제한다.</li>
+<li><strong>Audit:</strong> 사용자·agent가 수행한 action과 resource version을 운영 기록에 연결한다.</li>
+</ol>
+<p>Ontology MCP는 agent가 object, query, action을 MCP tool로 발견하게 한다. 이것은 <a href="../../agentic_ai/concepts/task-tool-and-capability-ontology" class="internal alias" data-slug="agentic_ai/concepts/task-tool-and-capability-ontology">task-tool-and-capability-ontology</a>의 상용 구현에 가깝다. 특히 agent가 자유 형식 API call을 만드는 대신 승인된 action surface를 호출하게 한다는 점이 안전성에 유리하다.</p>
+<p>그러나 ontology 자체가 잘못되면 typed tool도 잘못된 의미를 안정적으로 실행할 수 있다. 따라서 ontology correctness와 action authorization을 혼동하면 안 된다.</p>
+<h2 id="7-강점과-한계">7. 강점과 한계<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#7-강점과-한계" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="강점">강점<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#강점" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>데이터, 의미 모델, application, action, function, 권한을 하나의 운영 계층으로 연결한다.</li>
+<li>Datasource schema에서 object/property를 빠르게 bootstrap할 수 있다.</li>
+<li>GUI, Pipeline Builder, Ontology-as-code, SDK, MCP를 함께 제공한다.</li>
+<li>Branch, proposal, conflict resolution, approval policy로 안전한 변경 흐름을 지원한다.</li>
+<li>Object/action/function을 agent가 소비할 수 있는 typed tool로 전환한다.</li>
+<li>Schema 권한과 instance data 권한을 분리하고 project·classification 정책과 결합한다.</li>
+<li>Application 사용량과 function/action observability를 ontology 관리에 연결한다.</li>
+</ul>
+<h3 id="한계와-불확실성">한계와 불확실성<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#한계와-불확실성" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>기능과 효과에 관한 공개 근거가 대부분 Palantir 자체 문서이며 독립적인 정량 비교가 부족하다.</li>
+<li><code>Ontology</code>라는 명칭이 OWL/RDF ontology와 같은 formal semantics를 제공한다는 뜻은 아니다.</li>
+<li>자동화는 schema mapping과 개발 workflow에 강하지만 domain conceptualization의 무인 자동화를 입증하지 않는다.</li>
+<li>Export JSON schema가 안정적 계약이 아니며 일부 artifact의 cross-ontology import가 제한된다.</li>
+<li>Platform 전용 object/action/function/security 모델에 깊게 결합되어 vendor-neutral portability가 낮을 수 있다.</li>
+<li>Runtime validation과 governance는 강하지만 CQ coverage, axiom completeness, independent reasoner 검증은 별도 설계가 필요하다.</li>
+<li>MCP로 builder automation이 가능해도 hallucinated modelling, 과도한 권한, destructive migration 위험은 사라지지 않는다.</li>
+<li>공식 문서는 제품 capability를 설명하지만 구축 기간, steward 인력, 전체 비용, 실패율을 일반화할 근거는 제공하지 않는다.</li>
+</ul>
+<h2 id="8-권장-구축평가-방법">8. 권장 구축·평가 방법<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#8-권장-구축평가-방법" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Palantir 도입 시 “Ontology를 만들 수 있는가?”보다 다음을 검증해야 한다.</p>
+<h3 id="pilot-범위">Pilot 범위<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#pilot-범위" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>업무 결정 1개와 competency question 5~10개</li>
+<li>핵심 object type 5~15개</li>
+<li>중요 link type 10~30개</li>
+<li>read action과 guarded write action 각각 최소 1개</li>
+<li>authoritative datasource와 owner 명시</li>
+</ul>
+<h3 id="품질-gate">품질 Gate<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#품질-gate" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ol>
+<li>primary key stability와 duplicate rate</li>
+<li>object/entity resolution 정확도</li>
+<li>link direction·cardinality 표본 검토</li>
+<li>permission on/off 및 data leakage test</li>
+<li>branch replay와 downstream application regression</li>
+<li>action precondition·side effect·rollback test</li>
+<li>Ontology MCP allowlist와 external LLM data exposure 점검</li>
+<li>동일 use case의 ontology on/off task success·latency·운영비 비교</li>
+<li>JSON export만이 아닌 별도 canonical vocabulary와 migration mapping 보존</li>
+</ol>
+<h3 id="자동화-원칙">자동화 원칙<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#자동화-원칙" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="text" data-theme="github-light github-dark"><code data-language="text" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>자동 허용:</span></span>
+<span data-line><span>- column/property 초안</span></span>
+<span data-line><span>- metadata/API name 초안</span></span>
+<span data-line><span>- 반복적 mapping과 code generation</span></span>
+<span data-line><span>- validation 결과 설명</span></span>
+<span data-line><span>- branch proposal 초안</span></span>
+<span data-line> </span>
+<span data-line><span>사람 승인 필수:</span></span>
+<span data-line><span>- object 경계와 canonical identity</span></span>
+<span data-line><span>- relation semantics와 cardinality</span></span>
+<span data-line><span>- action 권한·상태 전이·side effect</span></span>
+<span data-line><span>- breaking schema change와 migration</span></span>
+<span data-line><span>- agent가 실행할 production action 공개</span></span></code></pre></figure>
+<h2 id="최종-판단">최종 판단<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#최종-판단" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Palantir Foundry Ontology는 <strong>기업용 operational semantic layer와 action platform을 결합한 높은 완성도의 상용 구현</strong>이다. Ontology Manager, Pipeline Builder, branching, project permissioning, OSDK와 MCP를 통해 생성 이후의 운영·배포·agent 연결까지 일관된 toolchain을 제공한다.</p>
+<p>하지만 자동 생성 관점의 결론은 제한적으로 봐야 한다.</p>
+<blockquote>
+<p>Palantir는 raw schema를 운영 ontology 초안으로 바꾸고 반복 작업을 자동화하는 능력은 강하지만, domain ontology의 의미를 무인으로 발견·검증하는 완전 자동 생성기는 아니다.</p>
+</blockquote>
+<p>가장 정확한 분류는 <strong>human-led semantic design + high automation in mapping, implementation, governance, and agent exposure</strong>다. 이는 <a href="../../agentic_ai/research/automatic-ontology-learning-with-llms" class="internal alias" data-slug="agentic_ai/research/automatic-ontology-learning-with-llms">automatic-ontology-learning-with-llms</a>에서 조사한 LLM 기반 자동 온톨로지 학습과 경쟁한다기보다 상호 보완적이다. LLM은 concept·relation 후보를 제안하고, Palantir는 승인된 모델을 data·action·security·application과 연결해 운영하는 역할에 강하다.</p>
+<h2 id="관련-페이지">관련 페이지<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#관련-페이지" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><a href="../../agentic_ai/research/automatic-ontology-learning-with-llms" class="internal alias" data-slug="agentic_ai/research/automatic-ontology-learning-with-llms">automatic-ontology-learning-with-llms</a></li>
+<li><a href="../../agentic_ai/applications/ontology-enabled-agent-systems" class="internal alias" data-slug="agentic_ai/applications/ontology-enabled-agent-systems">ontology-enabled-agent-systems</a></li>
+<li><a href="../../agentic_ai/concepts/ontology-engineering-foundations" class="internal alias" data-slug="agentic_ai/concepts/ontology-engineering-foundations">ontology-engineering-foundations</a></li>
+<li><a href="../../agentic_ai/concepts/ontology-evolution-and-governance" class="internal alias" data-slug="agentic_ai/concepts/ontology-evolution-and-governance">ontology-evolution-and-governance</a></li>
+<li><a href="../../agentic_ai/concepts/ontology-quality-and-consistency-validation" class="internal alias" data-slug="agentic_ai/concepts/ontology-quality-and-consistency-validation">ontology-quality-and-consistency-validation</a></li>
+<li><a href="../../agentic_ai/concepts/task-tool-and-capability-ontology" class="internal alias" data-slug="agentic_ai/concepts/task-tool-and-capability-ontology">task-tool-and-capability-ontology</a></li>
+<li><a href="../../agentic_ai/comparisons/ontology-grounded-vs-vector-only-agents" class="internal alias" data-slug="agentic_ai/comparisons/ontology-grounded-vs-vector-only-agents">ontology-grounded-vs-vector-only-agents</a></li>
+</ul>
+<h2 id="출처">출처<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#출처" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><a href="https://www.palantir.com/docs/foundry/ontology/core-concepts" class="external">Palantir Ontology Core concepts<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.palantir.com/docs/foundry/ontology/overview" class="external">Ontology overview<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.palantir.com/docs/foundry/architecture-center/ontology-system" class="external">The Ontology system<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.palantir.com/docs/foundry/ontology/ontology-best-practices" class="external">Ontology design best practices<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.palantir.com/docs/foundry/ontology-manager/overview" class="external">Ontology Manager<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.palantir.com/docs/foundry/object-link-types/create-object-type" class="external">Create an object type<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.palantir.com/docs/foundry/action-types/overview" class="external">Action types<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.palantir.com/docs/foundry/ontology-manager/export-import" class="external">Export, edit, and import an Ontology<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.palantir.com/docs/foundry/ontologies/branching-ontology" class="external">Branching the ontology<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.palantir.com/docs/foundry/ontologies/review-ontology-proposals" class="external">Review ontology proposals<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.palantir.com/docs/foundry/object-permissioning/ontology-permissions" class="external">Ontology permissions<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.palantir.com/docs/foundry/ontology-sdk/overview" class="external">Ontology SDK<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.palantir.com/docs/foundry/ontology-mcp/overview" class="external">Ontology MCP<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.palantir.com/docs/foundry/object-link-types/struct-automapping" class="external">Automapping struct types<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.palantir.com/docs/foundry/pipeline-builder/outputs-add-ontology-output" class="external">Add an Ontology output<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" class="toc-header" aria-controls="toc-22" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-1" class="toc-content overflow"><li class="depth-0"><a href="#palantir-foundry-ontology-심층-분석" data-for="palantir-foundry-ontology-심층-분석">Palantir Foundry Ontology 심층 분석</a></li><li class="depth-1"><a href="#한눈에-보기" data-for="한눈에-보기">한눈에 보기</a></li><li class="depth-1"><a href="#1-palantir가-말하는-ontology의-구성" data-for="1-palantir가-말하는-ontology의-구성">1. Palantir가 말하는 Ontology의 구성</a></li><li class="depth-2"><a href="#11-object-type과-object" data-for="11-object-type과-object">1.1 Object type과 object</a></li><li class="depth-2"><a href="#12-property와-shared-property" data-for="12-property와-shared-property">1.2 Property와 shared property</a></li><li class="depth-2"><a href="#13-link-type" data-for="13-link-type">1.3 Link type</a></li><li class="depth-2"><a href="#14-action-type" data-for="14-action-type">1.4 Action type</a></li><li class="depth-2"><a href="#15-function과-automation" data-for="15-function과-automation">1.5 Function과 automation</a></li><li class="depth-2"><a href="#16-interface" data-for="16-interface">1.6 Interface</a></li><li class="depth-1"><a href="#2-온톨로지를-만드는-실제-절차" data-for="2-온톨로지를-만드는-실제-절차">2. 온톨로지를 만드는 실제 절차</a></li><li class="depth-2"><a href="#21-ontology-manager-중심의-gui-방식" data-for="21-ontology-manager-중심의-gui-방식">2.1 Ontology Manager 중심의 GUI 방식</a></li><li class="depth-2"><a href="#22-datasource-기반-bootstrapping" data-for="22-datasource-기반-bootstrapping">2.2 Datasource 기반 bootstrapping</a></li><li class="depth-2"><a href="#23-pipeline-builder-방식" data-for="23-pipeline-builder-방식">2.3 Pipeline Builder 방식</a></li><li class="depth-2"><a href="#24-ontology-as-code와-importexport" data-for="24-ontology-as-code와-importexport">2.4 Ontology-as-code와 import/export</a></li><li class="depth-1"><a href="#3-생성-자동화-수준-평가" data-for="3-생성-자동화-수준-평가">3. 생성 자동화 수준 평가</a></li><li class="depth-2"><a href="#31-자동화-수준표" data-for="31-자동화-수준표">3.1 자동화 수준표</a></li><li class="depth-2"><a href="#32-palantir-mcp와-ai-지원" data-for="32-palantir-mcp와-ai-지원">3.2 Palantir MCP와 AI 지원</a></li><li class="depth-2"><a href="#33-자동화-성숙도-판정" data-for="33-자동화-성숙도-판정">3.3 자동화 성숙도 판정</a></li><li class="depth-1"><a href="#4-관리와-변경-통제" data-for="4-관리와-변경-통제">4. 관리와 변경 통제</a></li><li class="depth-2"><a href="#41-working-state와-save" data-for="41-working-state와-save">4.1 Working state와 save</a></li><li class="depth-2"><a href="#42-global-branching과-proposal" data-for="42-global-branching과-proposal">4.2 Global Branching과 proposal</a></li><li class="depth-2"><a href="#43-권한-모델" data-for="43-권한-모델">4.3 권한 모델</a></li><li class="depth-2"><a href="#44-관측성과-소비자-영향" data-for="44-관측성과-소비자-영향">4.4 관측성과 소비자 영향</a></li><li class="depth-1"><a href="#5-owlrdf-ontology와의-차이" data-for="5-owlrdf-ontology와의-차이">5. OWL/RDF Ontology와의 차이</a></li><li class="depth-1"><a href="#6-agentic-ai에서의-가치" data-for="6-agentic-ai에서의-가치">6. Agentic AI에서의 가치</a></li><li class="depth-1"><a href="#7-강점과-한계" data-for="7-강점과-한계">7. 강점과 한계</a></li><li class="depth-2"><a href="#강점" data-for="강점">강점</a></li><li class="depth-2"><a href="#한계와-불확실성" data-for="한계와-불확실성">한계와 불확실성</a></li><li class="depth-1"><a href="#8-권장-구축평가-방법" data-for="8-권장-구축평가-방법">8. 권장 구축·평가 방법</a></li><li class="depth-2"><a href="#pilot-범위" data-for="pilot-범위">Pilot 범위</a></li><li class="depth-2"><a href="#품질-gate" data-for="품질-gate">품질 Gate</a></li><li class="depth-2"><a href="#자동화-원칙" data-for="자동화-원칙">자동화 원칙</a></li><li class="depth-1"><a href="#최종-판단" data-for="최종-판단">최종 판단</a></li><li class="depth-1"><a href="#관련-페이지" data-for="관련-페이지">관련 페이지</a></li><li class="depth-1"><a href="#출처" data-for="출처">출처</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>Backlinks</h3><ul id="list-2" class="overflow"><li><a href="../../agentic_ai/" class="internal">Agentic AI</a></li><li><a href="../../agentic_ai/maps/agentic-ai-index" class="internal">Agentic AI 기술·연구 위키 목차</a></li><li><a href="../../agentic_ai/research/automatic-ontology-learning-with-llms" class="internal">LLM 기반 Automatic Ontology Generation 연구 지도</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../../postscript.js" type="module" data-persist="true"></script></html>
