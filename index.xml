@@ -1,70 +1,70 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
     <channel>
-      <title>Quartz 4</title>
-      <link>https://quartz.jzhao.xyz</link>
-      <description>Last 10 notes on Quartz 4</description>
+      <title>기술 연구 위키</title>
+      <link>https://jb-paul.github.io/tech-wiki-publish</link>
+      <description>Last 10 notes on 기술 연구 위키</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>기술 연구 위키</title>
+    <link>https://jb-paul.github.io/tech-wiki-publish/</link>
+    <guid>https://jb-paul.github.io/tech-wiki-publish/</guid>
+    <description><![CDATA[ 기술 연구 위키 기술 연구 분석 자료입니다. 사실·설계 제안·미검증 내용을 구분하며, 실제 도입 전 최신 공식 자료와 현장 조건을 확인하세요. ]]></description>
+    <pubDate>Wed, 30 Sep 2026 12:17:57 GMT</pubDate>
+  </item><item>
     <title>GPU Cluster Optimization</title>
-    <link>https://quartz.jzhao.xyz/gpu_cluster/</link>
-    <guid>https://quartz.jzhao.xyz/gpu_cluster/</guid>
-    <description><![CDATA[ GPU Cluster Optimization 지식 페이지: 44 GPU 플랫폼 자동화 및 관리 범위 매트릭스 구축형 GPU 클러스터 플랫폼 비교 클러스터 관리를 위한 AI 배치 사이즈 튜닝 병목 식별 클러스터 전체 모니터링 클러스터 스케줄링 및 오케스트레이션 집단 통신 프리미티브 일반적인 함정 및 회피 방법 통신 오버헤드 최적화 비용 효율적 클러스터 배포 사례 CPU-GPU 밸런싱 분산 훈련 프레임워크 신흥 GPU 아키텍처 갱 스케줄링 및 코-스케줄링 GPU 아키텍처 GPU 모니터링 도구 GPU 선택 및 구성 인터커넥트 기술 발전 ... ]]></description>
-    <pubDate>Mon, 14 Sep 2026 04:43:08 GMT</pubDate>
+    <link>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/</link>
+    <guid>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/</guid>
+    <description><![CDATA[ GPU Cluster Optimization 지식 페이지: 54 AMD Instinct MI355X 클러스터 레퍼런스 아키텍처 GPU 클러스터 통합 튜닝 가이드 GPU 통신 튜닝: NCCL·RCCL 설정을 안전하게 바꾸는 법 GPU 추론 튜닝: vLLM 메모리·요청 수·응답 속도 GPU 입력·컴파일 튜닝: 기다리는 시간과 준비 비용 줄이기 GPU 시스템 튜닝: 네트워크·CPU 배치·전력·스토리지 GPU 학습 튜닝: 배치·병렬화·정밀도·DDP GPU 클러스터 RoCE 구성 및 검증 가이드 RTX 6000 계열 클러스터 레퍼런스 아키텍... ]]></description>
+    <pubDate>Wed, 30 Sep 2026 12:17:57 GMT</pubDate>
   </item><item>
-    <title>Robot Fleet Management</title>
-    <link>https://quartz.jzhao.xyz/robot_fleet_management/</link>
-    <guid>https://quartz.jzhao.xyz/robot_fleet_management/</guid>
-    <description><![CDATA[ Robot Fleet Management 지식 페이지: 8 로봇 관제 PoC와 운영 평가 체크리스트 Open-RMF·VDA 5050·Nav2 역할과 선정 기준 관제 통신 QoS와 장애 복구 관제 안전 경계와 운영 통제 작업 할당과 교통·공유 자원 조정 로봇 관제 참조 아키텍처 Open-RMF 개요와 도입 경계 VDA 5050과 관제 상호운용성 robot-fleet-index . ]]></description>
-    <pubDate>Mon, 14 Sep 2026 04:43:08 GMT</pubDate>
+    <title>AMD Instinct MI355X 클러스터 레퍼런스 아키텍처</title>
+    <link>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/applications/amd-mi355x-cluster-reference-architecture</link>
+    <guid>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/applications/amd-mi355x-cluster-reference-architecture</guid>
+    <description><![CDATA[ AMD Instinct MI355X 클러스터 레퍼런스 아키텍처 요약과 범위 MI355X는 288GB HBM3E·8TB/s의 GPU를 8개 연결한 직접 수랭(DLC) 노드를 기본 단위로 검토하고, 노드 내부 Infinity Fabric과 노드 외부 Ethernet/RDMA를 구분해 설계해야 한다. ]]></description>
+    <pubDate>Tue, 29 Sep 2026 15:00:00 GMT</pubDate>
   </item><item>
-    <title>robot-fleet-index</title>
-    <link>https://quartz.jzhao.xyz/robot_fleet_management/maps/robot-fleet-index</link>
-    <guid>https://quartz.jzhao.xyz/robot_fleet_management/maps/robot-fleet-index</guid>
-    <description><![CDATA[ 로봇 관제 기술 지도 실내 AMR·AGV 다중 로봇 관제를 중심으로 한 초기 분석 위키다. 실측 성능·제품 인증·포괄적인 시장 조사를 완료한 자료가 아니다. ]]></description>
-    <pubDate>Mon, 14 Sep 2026 04:43:08 GMT</pubDate>
+    <title>GPU 클러스터 통합 튜닝 가이드</title>
+    <link>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/applications/gpu-cluster-tuning-guide</link>
+    <guid>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/applications/gpu-cluster-tuning-guide</guid>
+    <description><![CDATA[ GPU 클러스터 통합 튜닝 가이드 이 문서는 무엇을 도와주나 같은 장비에서 작업을 더 빨리, 더 안정적으로 끝내기 위해 어떤 설정을 어떤 순서로 바꿀지 안내한다. 학습·추론 프로그램, GPU 간 통신, CPU·네트워크·전력 설정을 하나의 절차로 연결했다. ]]></description>
+    <pubDate>Tue, 29 Sep 2026 15:00:00 GMT</pubDate>
   </item><item>
-    <title>Virtualization &amp; Container Platform</title>
-    <link>https://quartz.jzhao.xyz/virtualization_container_platform/</link>
-    <guid>https://quartz.jzhao.xyz/virtualization_container_platform/</guid>
-    <description><![CDATA[ Virtualization &amp; Container Platform 지식 페이지: 16 KubeVirt 관련 플랫폼 비교: OpenShift Virtualization, StarlingX, Wind River Cloud Platform 가상 머신과 컨테이너 비교 컨테이너 격리와 자원 제어 컨테이너 오케스트레이션 컨테이너 실행 모델 가상화의 계층과 모델 containerd Docker gVisor Kubernetes KubeVirt KVM과 libvirt Open Container Initiative Red Hat OpenShif... ]]></description>
-    <pubDate>Mon, 14 Sep 2026 04:43:08 GMT</pubDate>
+    <title>GPU 통신 튜닝: NCCL·RCCL 설정을 안전하게 바꾸는 법</title>
+    <link>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/applications/gpu-communication-tuning</link>
+    <guid>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/applications/gpu-communication-tuning</guid>
+    <description><![CDATA[ GPU 통신 튜닝: NCCL·RCCL 설정을 안전하게 바꾸는 법 범위와 읽는 법 여러 GPU가 계산 결과를 주고받는 시간을 줄이는 설정이다. GPU를 바쁘게 만드는 것보다 전체 작업을 빨리 끝내는 것이 목표다. ]]></description>
+    <pubDate>Tue, 29 Sep 2026 15:00:00 GMT</pubDate>
   </item><item>
-    <title>Agentic AI</title>
-    <link>https://quartz.jzhao.xyz/agentic_ai/</link>
-    <guid>https://quartz.jzhao.xyz/agentic_ai/</guid>
-    <description><![CDATA[ Agentic AI 지식 페이지: 130 Causal Analysis와 Hypothesis Testing Code Generation, Testing과 Debugging Coding Agent 기준 아키텍처 Coding Agent Security와 Sandboxing Coding Agents Continuous Evaluation과 Change Management Customer Support Agents Data Analysis Agents Data Center Infrastructure RCA DevOps, SRE와 Securi... ]]></description>
-    <pubDate>Mon, 14 Sep 2026 04:43:08 GMT</pubDate>
+    <title>GPU 추론 튜닝: vLLM 메모리·요청 수·응답 속도</title>
+    <link>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/applications/gpu-inference-tuning</link>
+    <guid>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/applications/gpu-inference-tuning</guid>
+    <description><![CDATA[ GPU 추론 튜닝: vLLM 메모리·요청 수·응답 속도 범위와 읽는 법 LLM 서비스에서 빠른 첫 응답, 끊기지 않는 생성, 많은 요청 처리를 함께 조정하는 가이드다. ]]></description>
+    <pubDate>Tue, 29 Sep 2026 15:00:00 GMT</pubDate>
   </item><item>
-    <title>로봇 관제 PoC와 운영 평가 체크리스트</title>
-    <link>https://quartz.jzhao.xyz/robot_fleet_management/applications/fleet-evaluation-checklist</link>
-    <guid>https://quartz.jzhao.xyz/robot_fleet_management/applications/fleet-evaluation-checklist</guid>
-    <description><![CDATA[ 로봇 관제 PoC와 운영 평가 체크리스트 목적과 근거 RMF가 다루는 공유 자원 충돌과 ROS 2 QoS 호환성 문제를 초기 PoC의 검증 축으로 삼는다.[1][3] 아래는 제안된 시험 계획이며 실제 로봇·시뮬레이터를 실행한 결과가 아니다. ]]></description>
-    <pubDate>Sun, 13 Sep 2026 15:00:00 GMT</pubDate>
+    <title>GPU 입력·컴파일 튜닝: 기다리는 시간과 준비 비용 줄이기</title>
+    <link>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/applications/gpu-input-compiler-tuning</link>
+    <guid>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/applications/gpu-input-compiler-tuning</guid>
+    <description><![CDATA[ GPU 입력·컴파일 튜닝: 기다리는 시간과 준비 비용 줄이기 범위와 읽는 법 GPU가 느린 것이 아니라 데이터를 기다리거나 프로그램 준비에 시간을 쓰는 경우를 다룬다. ]]></description>
+    <pubDate>Tue, 29 Sep 2026 15:00:00 GMT</pubDate>
   </item><item>
-    <title>Open-RMF·VDA 5050·Nav2 역할과 선정 기준</title>
-    <link>https://quartz.jzhao.xyz/robot_fleet_management/comparisons/fleet-stack-selection</link>
-    <guid>https://quartz.jzhao.xyz/robot_fleet_management/comparisons/fleet-stack-selection</guid>
-    <description><![CDATA[ Open-RMF·VDA 5050·Nav2 역할과 선정 기준 비교 목적 이 구성 요소들을 동일한 관제 제품으로 순위 매기지 않고 역할과 통합 경계를 구분한다. ]]></description>
-    <pubDate>Sun, 13 Sep 2026 15:00:00 GMT</pubDate>
+    <title>GPU 시스템 튜닝: 네트워크·CPU 배치·전력·스토리지</title>
+    <link>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/applications/gpu-system-tuning</link>
+    <guid>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/applications/gpu-system-tuning</guid>
+    <description><![CDATA[ GPU 시스템 튜닝: 네트워크·CPU 배치·전력·스토리지 범위와 읽는 법 서버와 스위치 설정은 여러 작업에 동시에 영향을 준다. 프로그램 설정으로 해결할 수 있는지 먼저 확인하고, 장비 설정은 승인된 점검 시간에 작은 시험 환경부터 바꾼다. ]]></description>
+    <pubDate>Tue, 29 Sep 2026 15:00:00 GMT</pubDate>
   </item><item>
-    <title>관제 통신 QoS와 장애 복구</title>
-    <link>https://quartz.jzhao.xyz/robot_fleet_management/concepts/fleet-communication-and-recovery</link>
-    <guid>https://quartz.jzhao.xyz/robot_fleet_management/concepts/fleet-communication-and-recovery</guid>
-    <description><![CDATA[ 관제 통신 QoS와 장애 복구 정의와 확인된 사실 ROS 2 QoS는 노드 간 통신 정책을 조정한다. ]]></description>
-    <pubDate>Sun, 13 Sep 2026 15:00:00 GMT</pubDate>
+    <title>GPU 학습 튜닝: 배치·병렬화·정밀도·DDP</title>
+    <link>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/applications/gpu-training-tuning</link>
+    <guid>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/applications/gpu-training-tuning</guid>
+    <description><![CDATA[ GPU 학습 튜닝: 배치·병렬화·정밀도·DDP 범위와 읽는 법 학습 속도는 정확한 업데이트를 얼마나 빨리 수행하는지로 평가한다. loss(학습 오차)나 검증 점수가 나빠졌는데 step만 빨라진 것을 같은 품질의 개선으로 보고하지 않는다. ]]></description>
+    <pubDate>Tue, 29 Sep 2026 15:00:00 GMT</pubDate>
   </item><item>
-    <title>관제 안전 경계와 운영 통제</title>
-    <link>https://quartz.jzhao.xyz/robot_fleet_management/concepts/fleet-safety-and-operations</link>
-    <guid>https://quartz.jzhao.xyz/robot_fleet_management/concepts/fleet-safety-and-operations</guid>
-    <description><![CDATA[ 관제 안전 경계와 운영 통제 범위 이 문서는 인증된 안전 설계나 규격 적합성 판정이 아니라 후속 위험 분석과 운영 설계를 위한 검토 목록이다. 특정 안전 등급·정지 거리·응답 시간의 보장은 하지 않는다. ]]></description>
-    <pubDate>Sun, 13 Sep 2026 15:00:00 GMT</pubDate>
-  </item><item>
-    <title>작업 할당과 교통·공유 자원 조정</title>
-    <link>https://quartz.jzhao.xyz/robot_fleet_management/concepts/fleet-task-and-traffic-management</link>
-    <guid>https://quartz.jzhao.xyz/robot_fleet_management/concepts/fleet-task-and-traffic-management</guid>
-    <description><![CDATA[ 작업 할당과 교통·공유 자원 조정 정의 작업 할당은 누가 어떤 임무를 수행할지 결정하는 문제이고, 교통 조정은 그 임무를 수행하는 동안 공간과 시간을 어떻게 공유할지 결정하는 문제다. 이 구분은 시스템 설계를 위한 분해다. ]]></description>
-    <pubDate>Sun, 13 Sep 2026 15:00:00 GMT</pubDate>
+    <title>GPU 클러스터 RoCE 구성 및 검증 가이드</title>
+    <link>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/applications/roce-fabric-configuration-validation</link>
+    <guid>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/applications/roce-fabric-configuration-validation</guid>
+    <description><![CDATA[ GPU 클러스터 RoCE 구성 및 검증 가이드 정의·범위 NVIDIA/AMD GPU 클러스터의 RoCE scale-out 경로를 단계별로 검증하는 운영 설계다. ]]></description>
+    <pubDate>Tue, 29 Sep 2026 15:00:00 GMT</pubDate>
   </item>
     </channel>
   </rss>
