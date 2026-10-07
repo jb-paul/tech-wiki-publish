@@ -6,64 +6,64 @@
       <description>Last 10 notes on 기술 연구 위키</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>Robot Fleet Management</title>
+    <link>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/</link>
+    <guid>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/</guid>
+    <description><![CDATA[ Robot Fleet Management 지식 페이지: 17 로봇 관제 PoC와 운영 평가 체크리스트 현대자동차 제조공장을 위한 로봇 관제 플랫폼 제안 제조환경의 로봇 관제와 생산 연계 설계 Open-RMF·VDA 5050·Nav2 역할과 선정 기준 관제 통신 QoS와 장애 복구 관제 안전 경계와 운영 통제 작업 할당과 교통·공유 자원 조정 로봇 관제 플랫폼 개요와 개발 문서 길잡이 로봇 관제 참조 아키텍처 로봇 관제 플랫폼의 주요 기능과 책임 Open-RMF 개요와 도입 경계 VDA 5050과 관제 상호운용성 robot-fleet... ]]></description>
+    <pubDate>Wed, 07 Oct 2026 04:43:58 GMT</pubDate>
+  </item><item>
+    <title>robot-fleet-index</title>
+    <link>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/maps/robot-fleet-index</link>
+    <guid>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/maps/robot-fleet-index</guid>
+    <description><![CDATA[ 로봇 관제 기술 지도 실내에서 물품을 나르는 여러 로봇을 어떻게 관제하고, 제조공장용 플랫폼은 무엇부터 개발할지 살펴보는 위키예요. ]]></description>
+    <pubDate>Wed, 07 Oct 2026 04:43:58 GMT</pubDate>
+  </item><item>
     <title>기술 연구 위키</title>
     <link>https://jb-paul.github.io/tech-wiki-publish/</link>
     <guid>https://jb-paul.github.io/tech-wiki-publish/</guid>
     <description><![CDATA[ 기술 연구 위키 기술 연구 분석 자료입니다. 사실·설계 제안·미검증 내용을 구분하며, 실제 도입 전 최신 공식 자료와 현장 조건을 확인하세요. ]]></description>
     <pubDate>Wed, 07 Oct 2026 03:12:39 GMT</pubDate>
   </item><item>
-    <title>Robot Fleet Management</title>
-    <link>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/</link>
-    <guid>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/</guid>
-    <description><![CDATA[ Robot Fleet Management 지식 페이지: 17 로봇 관제 PoC와 운영 평가 체크리스트 현대자동차 제조공장을 위한 로봇 관제 플랫폼 제안 제조환경의 로봇 관제와 생산 연계 설계 Open-RMF·VDA 5050·Nav2 역할과 선정 기준 관제 통신 QoS와 장애 복구 관제 안전 경계와 운영 통제 작업 할당과 교통·공유 자원 조정 로봇 관제 플랫폼 개요와 개발 문서 길잡이 로봇 관제 참조 아키텍처 로봇 관제 플랫폼의 주요 기능과 책임 Open-RMF 개요와 도입 경계 VDA 5050과 관제 상호운용성 robot-fleet... ]]></description>
-    <pubDate>Wed, 07 Oct 2026 03:12:39 GMT</pubDate>
-  </item><item>
-    <title>robot-fleet-index</title>
-    <link>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/maps/robot-fleet-index</link>
-    <guid>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/maps/robot-fleet-index</guid>
-    <description><![CDATA[ 로봇 관제 기술 지도 실내 AMR·AGV 다중 로봇 관제의 기술 기초와 제조공장용 플랫폼 개발 제안을 다룬다. 실측 성능·제품 인증·현대자동차 내부 설계·포괄적인 시장 조사를 완료한 자료가 아니다. ]]></description>
-    <pubDate>Wed, 07 Oct 2026 03:12:39 GMT</pubDate>
-  </item><item>
     <title>현대자동차 제조공장을 위한 로봇 관제 플랫폼 제안</title>
     <link>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/applications/hyundai-manufacturing-robot-platform</link>
     <guid>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/applications/hyundai-manufacturing-robot-platform</guid>
-    <description><![CDATA[ 현대자동차 제조공장을 위한 로봇 관제 플랫폼 제안 범위와 결론 사용자 요청의 “현재자동자”는 문맥상 현대자동차로 해석했다. 대상이 울산·아산·전주·HMGICS·HMGMA 중 어디인지는 지정되지 않았다. ]]></description>
+    <description><![CDATA[ 현대자동차 제조공장을 위한 로봇 관제 플랫폼 제안 범위와 결론 현대자동차 공장에 적용한다면, 로봇부터 고르기보다 어떤 공장 업무를 연결할지부터 정하는 게 좋아요. ]]></description>
     <pubDate>Tue, 06 Oct 2026 15:00:00 GMT</pubDate>
   </item><item>
     <title>제조환경의 로봇 관제와 생산 연계 설계</title>
     <link>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/applications/manufacturing-robot-orchestration</link>
     <guid>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/applications/manufacturing-robot-orchestration</guid>
-    <description><![CDATA[ 제조환경의 로봇 관제와 생산 연계 설계 제조 관제는 무엇이 다른가 이 문서의 제조 시나리오는 요구사항 도출을 위한 일반화된 설계 사례다. 특정 공장의 실제 프로세스나 생산 수치를 뜻하지 않는다. 부품을 빨리 운반해도 잘못된 차종·순서·품질 상태라면 생산 가치가 없다. ]]></description>
+    <description><![CDATA[ 제조환경의 로봇 관제와 생산 연계 설계 제조 관제는 무엇이 다른가 공장에서는 “빨리 옮겼다”만으로 충분하지 않아요. 맞는 부품을, 필요한 순서대로, 제시간에 건네야 해요. ]]></description>
     <pubDate>Tue, 06 Oct 2026 15:00:00 GMT</pubDate>
   </item><item>
     <title>로봇 관제 플랫폼 개요와 개발 문서 길잡이</title>
     <link>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/concepts/robot-control-platform-overview</link>
     <guid>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/concepts/robot-control-platform-overview</guid>
-    <description><![CDATA[ 로봇 관제 플랫폼 개요와 개발 문서 길잡이 왜 관제 플랫폼을 만드는가 자재를 실은 로봇이 목적지에 도착해도 생산 작업이 끝난 것은 아니다. 부품이 맞는지, 다음 차체에 필요한 순서인지, 인계 설비가 준비됐는지, 다른 로봇이 통로를 막고 있지는 않은지 확인해야 한다. ]]></description>
+    <description><![CDATA[ 로봇 관제 플랫폼 개요와 개발 문서 길잡이 왜 관제 플랫폼을 만드는가 로봇이 여러 대 있다고 해서 공장 일이 저절로 잘 돌아가지는 않아요. 로봇마다 목적지까지 갈 수 있더라도, 누구에게 어떤 일을 맡기고 좁은 통로를 어떤 순서로 지나게 할지는 함께 정해야 하죠. ]]></description>
     <pubDate>Tue, 06 Oct 2026 15:00:00 GMT</pubDate>
   </item><item>
     <title>로봇 관제 플랫폼의 주요 기능과 책임</title>
     <link>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/concepts/robot-platform-capabilities</link>
     <guid>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/concepts/robot-platform-capabilities</guid>
-    <description><![CDATA[ 로봇 관제 플랫폼의 주요 기능과 책임 기능 목록보다 먼저 작업의 끝을 정한다 이 페이지는 플랫폼의 기능 명세 제안이다. ]]></description>
+    <description><![CDATA[ 로봇 관제 플랫폼의 주요 기능과 책임 기능 목록보다 먼저 작업의 끝을 정한다 “부품을 7번 라인으로 가져다줘”라는 요청을 받았다고 해 볼게요. ]]></description>
     <pubDate>Tue, 06 Oct 2026 15:00:00 GMT</pubDate>
   </item><item>
     <title>로봇 관제 플랫폼 개발 목록과 EPIC 분류</title>
     <link>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/research/robot-platform-development-plan</link>
     <guid>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/research/robot-platform-development-plan</guid>
-    <description><![CDATA[ 로봇 관제 플랫폼 개발 목록과 EPIC 분류 개발 전략과 산출물 이 문서는 제안 백로그다. 실제 현대자동차 요구사항이나 견적 확정본이 아니다. EPIC은 하나의 제품 성과를 묶은 큰 개발 단위이고, 스토리는 사용자가 얻을 가치와 검증 가능한 수용 조건을 가진 항목이다. ]]></description>
+    <description><![CDATA[ 로봇 관제 플랫폼 개발 목록과 EPIC 분류 개발 전략과 산출물 “관제 플랫폼을 만들자”는 말만으로는 누가 무엇부터 개발해야 할지 알기 어려워요. 그래서 큰 기능 묶음 → 나눠 맡을 개발 작업 → 사용자가 원하는 동작 순서로 정리했어요. ]]></description>
     <pubDate>Tue, 06 Oct 2026 15:00:00 GMT</pubDate>
   </item><item>
     <title>로봇 관제 플랫폼 5년 로드맵과 2년 단기 목표</title>
     <link>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/research/robot-platform-five-year-roadmap</link>
     <guid>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/research/robot-platform-five-year-roadmap</guid>
-    <description><![CDATA[ 로봇 관제 플랫폼 5년 로드맵과 2년 단기 목표 계획의 시간 기준과 전제 Y1Y5는 착수 이후 연차, M1M60은 착수 이후 월이다. 착수일이 정해지지 않아 달력 연도로 고정하지 않는다. 이는 개발 제안이며 현대자동차의 공식 일정이 아니다. ]]></description>
+    <description><![CDATA[ 로봇 관제 플랫폼 5년 로드맵과 2년 단기 목표 계획의 시간 기준과 전제 첫 2년의 목표는 모든 종류의 로봇을 연결하는 것이 아니라, 한 공장에서 실제로 운영할 수 있는 제품을 만드는 거예요. ]]></description>
     <pubDate>Tue, 06 Oct 2026 15:00:00 GMT</pubDate>
   </item><item>
     <title>검증·확장 EPIC E09–E12 핵심 스토리</title>
     <link>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/research/robot-platform-stories-assurance</link>
     <guid>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/research/robot-platform-stories-assurance</guid>
-    <description><![CDATA[ 검증·확장 EPIC E09–E12 핵심 스토리 범위와 표기 NIST OT 보안 소개는 성능·신뢰성·안전을 함께 고려한다.[9] ISO 10218-2:2025 Scope 미리보기는 셀 통합과 이동성 위험의 범위를 구분한다.[12] 아래는 통제를 제품 개발에 포함하는 제안이며 규격 전문 체크리스트나 안전 인증 결과가 아니다. ]]></description>
+    <description><![CDATA[ 검증·확장 EPIC E09–E12 핵심 스토리 범위와 표기 NIST의 OT 보안 소개는 성능·신뢰성·안전을 함께 고려해요.[9] ISO 10218-2:2025의 공개 Scope, 즉 적용 범위 미리보기는 셀 통합과 이동성 위험의 범위를 구분하고요.[12] 아래는 이런 통제를 제품에 포함하자는 제안이에요. ]]></description>
     <pubDate>Tue, 06 Oct 2026 15:00:00 GMT</pubDate>
   </item>
     </channel>
