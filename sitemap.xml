@@ -564,37 +564,64 @@
     <lastmod>2026-09-29T15:00:00.000Z</lastmod>
   </url><url>
     <loc>https://jb-paul.github.io/tech-wiki-publish/</loc>
-    <lastmod>2026-09-30T12:17:57.634Z</lastmod>
+    <lastmod>2026-10-07T03:12:39.919Z</lastmod>
   </url><url>
     <loc>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/applications/fleet-evaluation-checklist</loc>
-    <lastmod>2026-09-13T15:00:00.000Z</lastmod>
+    <lastmod>2026-09-30T15:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/applications/hyundai-manufacturing-robot-platform</loc>
+    <lastmod>2026-10-06T15:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/applications/manufacturing-robot-orchestration</loc>
+    <lastmod>2026-10-06T15:00:00.000Z</lastmod>
   </url><url>
     <loc>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/comparisons/fleet-stack-selection</loc>
-    <lastmod>2026-09-13T15:00:00.000Z</lastmod>
+    <lastmod>2026-09-30T15:00:00.000Z</lastmod>
   </url><url>
     <loc>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/concepts/fleet-communication-and-recovery</loc>
-    <lastmod>2026-09-13T15:00:00.000Z</lastmod>
+    <lastmod>2026-09-29T15:00:00.000Z</lastmod>
   </url><url>
     <loc>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/concepts/fleet-safety-and-operations</loc>
-    <lastmod>2026-09-13T15:00:00.000Z</lastmod>
+    <lastmod>2026-09-30T15:00:00.000Z</lastmod>
   </url><url>
     <loc>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/concepts/fleet-task-and-traffic-management</loc>
-    <lastmod>2026-09-13T15:00:00.000Z</lastmod>
+    <lastmod>2026-09-30T15:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/concepts/robot-control-platform-overview</loc>
+    <lastmod>2026-10-06T15:00:00.000Z</lastmod>
   </url><url>
     <loc>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/concepts/robot-fleet-architecture</loc>
-    <lastmod>2026-09-13T15:00:00.000Z</lastmod>
+    <lastmod>2026-09-30T15:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/concepts/robot-platform-capabilities</loc>
+    <lastmod>2026-10-06T15:00:00.000Z</lastmod>
   </url><url>
     <loc>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/entities/open-rmf-overview</loc>
-    <lastmod>2026-09-13T15:00:00.000Z</lastmod>
+    <lastmod>2026-09-30T15:00:00.000Z</lastmod>
   </url><url>
     <loc>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/entities/vda5050-overview</loc>
-    <lastmod>2026-09-13T15:00:00.000Z</lastmod>
+    <lastmod>2026-09-30T15:00:00.000Z</lastmod>
   </url><url>
     <loc>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/</loc>
-    <lastmod>2026-09-14T04:43:08.685Z</lastmod>
+    <lastmod>2026-10-07T03:12:39.859Z</lastmod>
   </url><url>
     <loc>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/maps/robot-fleet-index</loc>
-    <lastmod>2026-09-14T04:43:08.685Z</lastmod>
+    <lastmod>2026-10-07T03:12:39.851Z</lastmod>
+  </url><url>
+    <loc>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/research/robot-platform-development-plan</loc>
+    <lastmod>2026-10-06T15:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/research/robot-platform-five-year-roadmap</loc>
+    <lastmod>2026-10-06T15:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/research/robot-platform-stories-assurance</loc>
+    <lastmod>2026-10-06T15:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/research/robot-platform-stories-factory</loc>
+    <lastmod>2026-10-06T15:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/research/robot-platform-stories-foundation</loc>
+    <lastmod>2026-10-06T15:00:00.000Z</lastmod>
   </url><url>
     <loc>https://jb-paul.github.io/tech-wiki-publish/virtualization_container_platform/comparisons/kubevirt-platform-comparison</loc>
     <lastmod>2026-08-12T15:00:00.000Z</lastmod>

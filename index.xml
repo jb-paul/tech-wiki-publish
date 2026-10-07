@@ -10,61 +10,61 @@
     <link>https://jb-paul.github.io/tech-wiki-publish/</link>
     <guid>https://jb-paul.github.io/tech-wiki-publish/</guid>
     <description><![CDATA[ 기술 연구 위키 기술 연구 분석 자료입니다. 사실·설계 제안·미검증 내용을 구분하며, 실제 도입 전 최신 공식 자료와 현장 조건을 확인하세요. ]]></description>
-    <pubDate>Wed, 30 Sep 2026 12:17:57 GMT</pubDate>
+    <pubDate>Wed, 07 Oct 2026 03:12:39 GMT</pubDate>
   </item><item>
-    <title>GPU Cluster Optimization</title>
-    <link>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/</link>
-    <guid>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/</guid>
-    <description><![CDATA[ GPU Cluster Optimization 지식 페이지: 54 AMD Instinct MI355X 클러스터 레퍼런스 아키텍처 GPU 클러스터 통합 튜닝 가이드 GPU 통신 튜닝: NCCL·RCCL 설정을 안전하게 바꾸는 법 GPU 추론 튜닝: vLLM 메모리·요청 수·응답 속도 GPU 입력·컴파일 튜닝: 기다리는 시간과 준비 비용 줄이기 GPU 시스템 튜닝: 네트워크·CPU 배치·전력·스토리지 GPU 학습 튜닝: 배치·병렬화·정밀도·DDP GPU 클러스터 RoCE 구성 및 검증 가이드 RTX 6000 계열 클러스터 레퍼런스 아키텍... ]]></description>
-    <pubDate>Wed, 30 Sep 2026 12:17:57 GMT</pubDate>
+    <title>Robot Fleet Management</title>
+    <link>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/</link>
+    <guid>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/</guid>
+    <description><![CDATA[ Robot Fleet Management 지식 페이지: 17 로봇 관제 PoC와 운영 평가 체크리스트 현대자동차 제조공장을 위한 로봇 관제 플랫폼 제안 제조환경의 로봇 관제와 생산 연계 설계 Open-RMF·VDA 5050·Nav2 역할과 선정 기준 관제 통신 QoS와 장애 복구 관제 안전 경계와 운영 통제 작업 할당과 교통·공유 자원 조정 로봇 관제 플랫폼 개요와 개발 문서 길잡이 로봇 관제 참조 아키텍처 로봇 관제 플랫폼의 주요 기능과 책임 Open-RMF 개요와 도입 경계 VDA 5050과 관제 상호운용성 robot-fleet... ]]></description>
+    <pubDate>Wed, 07 Oct 2026 03:12:39 GMT</pubDate>
   </item><item>
-    <title>AMD Instinct MI355X 클러스터 레퍼런스 아키텍처</title>
-    <link>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/applications/amd-mi355x-cluster-reference-architecture</link>
-    <guid>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/applications/amd-mi355x-cluster-reference-architecture</guid>
-    <description><![CDATA[ AMD Instinct MI355X 클러스터 레퍼런스 아키텍처 요약과 범위 MI355X는 288GB HBM3E·8TB/s의 GPU를 8개 연결한 직접 수랭(DLC) 노드를 기본 단위로 검토하고, 노드 내부 Infinity Fabric과 노드 외부 Ethernet/RDMA를 구분해 설계해야 한다. ]]></description>
-    <pubDate>Tue, 29 Sep 2026 15:00:00 GMT</pubDate>
+    <title>robot-fleet-index</title>
+    <link>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/maps/robot-fleet-index</link>
+    <guid>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/maps/robot-fleet-index</guid>
+    <description><![CDATA[ 로봇 관제 기술 지도 실내 AMR·AGV 다중 로봇 관제의 기술 기초와 제조공장용 플랫폼 개발 제안을 다룬다. 실측 성능·제품 인증·현대자동차 내부 설계·포괄적인 시장 조사를 완료한 자료가 아니다. ]]></description>
+    <pubDate>Wed, 07 Oct 2026 03:12:39 GMT</pubDate>
   </item><item>
-    <title>GPU 클러스터 통합 튜닝 가이드</title>
-    <link>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/applications/gpu-cluster-tuning-guide</link>
-    <guid>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/applications/gpu-cluster-tuning-guide</guid>
-    <description><![CDATA[ GPU 클러스터 통합 튜닝 가이드 이 문서는 무엇을 도와주나 같은 장비에서 작업을 더 빨리, 더 안정적으로 끝내기 위해 어떤 설정을 어떤 순서로 바꿀지 안내한다. 학습·추론 프로그램, GPU 간 통신, CPU·네트워크·전력 설정을 하나의 절차로 연결했다. ]]></description>
-    <pubDate>Tue, 29 Sep 2026 15:00:00 GMT</pubDate>
+    <title>현대자동차 제조공장을 위한 로봇 관제 플랫폼 제안</title>
+    <link>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/applications/hyundai-manufacturing-robot-platform</link>
+    <guid>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/applications/hyundai-manufacturing-robot-platform</guid>
+    <description><![CDATA[ 현대자동차 제조공장을 위한 로봇 관제 플랫폼 제안 범위와 결론 사용자 요청의 “현재자동자”는 문맥상 현대자동차로 해석했다. 대상이 울산·아산·전주·HMGICS·HMGMA 중 어디인지는 지정되지 않았다. ]]></description>
+    <pubDate>Tue, 06 Oct 2026 15:00:00 GMT</pubDate>
   </item><item>
-    <title>GPU 통신 튜닝: NCCL·RCCL 설정을 안전하게 바꾸는 법</title>
-    <link>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/applications/gpu-communication-tuning</link>
-    <guid>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/applications/gpu-communication-tuning</guid>
-    <description><![CDATA[ GPU 통신 튜닝: NCCL·RCCL 설정을 안전하게 바꾸는 법 범위와 읽는 법 여러 GPU가 계산 결과를 주고받는 시간을 줄이는 설정이다. GPU를 바쁘게 만드는 것보다 전체 작업을 빨리 끝내는 것이 목표다. ]]></description>
-    <pubDate>Tue, 29 Sep 2026 15:00:00 GMT</pubDate>
+    <title>제조환경의 로봇 관제와 생산 연계 설계</title>
+    <link>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/applications/manufacturing-robot-orchestration</link>
+    <guid>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/applications/manufacturing-robot-orchestration</guid>
+    <description><![CDATA[ 제조환경의 로봇 관제와 생산 연계 설계 제조 관제는 무엇이 다른가 이 문서의 제조 시나리오는 요구사항 도출을 위한 일반화된 설계 사례다. 특정 공장의 실제 프로세스나 생산 수치를 뜻하지 않는다. 부품을 빨리 운반해도 잘못된 차종·순서·품질 상태라면 생산 가치가 없다. ]]></description>
+    <pubDate>Tue, 06 Oct 2026 15:00:00 GMT</pubDate>
   </item><item>
-    <title>GPU 추론 튜닝: vLLM 메모리·요청 수·응답 속도</title>
-    <link>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/applications/gpu-inference-tuning</link>
-    <guid>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/applications/gpu-inference-tuning</guid>
-    <description><![CDATA[ GPU 추론 튜닝: vLLM 메모리·요청 수·응답 속도 범위와 읽는 법 LLM 서비스에서 빠른 첫 응답, 끊기지 않는 생성, 많은 요청 처리를 함께 조정하는 가이드다. ]]></description>
-    <pubDate>Tue, 29 Sep 2026 15:00:00 GMT</pubDate>
+    <title>로봇 관제 플랫폼 개요와 개발 문서 길잡이</title>
+    <link>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/concepts/robot-control-platform-overview</link>
+    <guid>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/concepts/robot-control-platform-overview</guid>
+    <description><![CDATA[ 로봇 관제 플랫폼 개요와 개발 문서 길잡이 왜 관제 플랫폼을 만드는가 자재를 실은 로봇이 목적지에 도착해도 생산 작업이 끝난 것은 아니다. 부품이 맞는지, 다음 차체에 필요한 순서인지, 인계 설비가 준비됐는지, 다른 로봇이 통로를 막고 있지는 않은지 확인해야 한다. ]]></description>
+    <pubDate>Tue, 06 Oct 2026 15:00:00 GMT</pubDate>
   </item><item>
-    <title>GPU 입력·컴파일 튜닝: 기다리는 시간과 준비 비용 줄이기</title>
-    <link>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/applications/gpu-input-compiler-tuning</link>
-    <guid>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/applications/gpu-input-compiler-tuning</guid>
-    <description><![CDATA[ GPU 입력·컴파일 튜닝: 기다리는 시간과 준비 비용 줄이기 범위와 읽는 법 GPU가 느린 것이 아니라 데이터를 기다리거나 프로그램 준비에 시간을 쓰는 경우를 다룬다. ]]></description>
-    <pubDate>Tue, 29 Sep 2026 15:00:00 GMT</pubDate>
+    <title>로봇 관제 플랫폼의 주요 기능과 책임</title>
+    <link>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/concepts/robot-platform-capabilities</link>
+    <guid>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/concepts/robot-platform-capabilities</guid>
+    <description><![CDATA[ 로봇 관제 플랫폼의 주요 기능과 책임 기능 목록보다 먼저 작업의 끝을 정한다 이 페이지는 플랫폼의 기능 명세 제안이다. ]]></description>
+    <pubDate>Tue, 06 Oct 2026 15:00:00 GMT</pubDate>
   </item><item>
-    <title>GPU 시스템 튜닝: 네트워크·CPU 배치·전력·스토리지</title>
-    <link>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/applications/gpu-system-tuning</link>
-    <guid>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/applications/gpu-system-tuning</guid>
-    <description><![CDATA[ GPU 시스템 튜닝: 네트워크·CPU 배치·전력·스토리지 범위와 읽는 법 서버와 스위치 설정은 여러 작업에 동시에 영향을 준다. 프로그램 설정으로 해결할 수 있는지 먼저 확인하고, 장비 설정은 승인된 점검 시간에 작은 시험 환경부터 바꾼다. ]]></description>
-    <pubDate>Tue, 29 Sep 2026 15:00:00 GMT</pubDate>
+    <title>로봇 관제 플랫폼 개발 목록과 EPIC 분류</title>
+    <link>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/research/robot-platform-development-plan</link>
+    <guid>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/research/robot-platform-development-plan</guid>
+    <description><![CDATA[ 로봇 관제 플랫폼 개발 목록과 EPIC 분류 개발 전략과 산출물 이 문서는 제안 백로그다. 실제 현대자동차 요구사항이나 견적 확정본이 아니다. EPIC은 하나의 제품 성과를 묶은 큰 개발 단위이고, 스토리는 사용자가 얻을 가치와 검증 가능한 수용 조건을 가진 항목이다. ]]></description>
+    <pubDate>Tue, 06 Oct 2026 15:00:00 GMT</pubDate>
   </item><item>
-    <title>GPU 학습 튜닝: 배치·병렬화·정밀도·DDP</title>
-    <link>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/applications/gpu-training-tuning</link>
-    <guid>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/applications/gpu-training-tuning</guid>
-    <description><![CDATA[ GPU 학습 튜닝: 배치·병렬화·정밀도·DDP 범위와 읽는 법 학습 속도는 정확한 업데이트를 얼마나 빨리 수행하는지로 평가한다. loss(학습 오차)나 검증 점수가 나빠졌는데 step만 빨라진 것을 같은 품질의 개선으로 보고하지 않는다. ]]></description>
-    <pubDate>Tue, 29 Sep 2026 15:00:00 GMT</pubDate>
+    <title>로봇 관제 플랫폼 5년 로드맵과 2년 단기 목표</title>
+    <link>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/research/robot-platform-five-year-roadmap</link>
+    <guid>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/research/robot-platform-five-year-roadmap</guid>
+    <description><![CDATA[ 로봇 관제 플랫폼 5년 로드맵과 2년 단기 목표 계획의 시간 기준과 전제 Y1Y5는 착수 이후 연차, M1M60은 착수 이후 월이다. 착수일이 정해지지 않아 달력 연도로 고정하지 않는다. 이는 개발 제안이며 현대자동차의 공식 일정이 아니다. ]]></description>
+    <pubDate>Tue, 06 Oct 2026 15:00:00 GMT</pubDate>
   </item><item>
-    <title>GPU 클러스터 RoCE 구성 및 검증 가이드</title>
-    <link>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/applications/roce-fabric-configuration-validation</link>
-    <guid>https://jb-paul.github.io/tech-wiki-publish/gpu_cluster/applications/roce-fabric-configuration-validation</guid>
-    <description><![CDATA[ GPU 클러스터 RoCE 구성 및 검증 가이드 정의·범위 NVIDIA/AMD GPU 클러스터의 RoCE scale-out 경로를 단계별로 검증하는 운영 설계다. ]]></description>
-    <pubDate>Tue, 29 Sep 2026 15:00:00 GMT</pubDate>
+    <title>검증·확장 EPIC E09–E12 핵심 스토리</title>
+    <link>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/research/robot-platform-stories-assurance</link>
+    <guid>https://jb-paul.github.io/tech-wiki-publish/robot_fleet_management/research/robot-platform-stories-assurance</guid>
+    <description><![CDATA[ 검증·확장 EPIC E09–E12 핵심 스토리 범위와 표기 NIST OT 보안 소개는 성능·신뢰성·안전을 함께 고려한다.[9] ISO 10218-2:2025 Scope 미리보기는 셀 통합과 이동성 위험의 범위를 구분한다.[12] 아래는 통제를 제품 개발에 포함하는 제안이며 규격 전문 체크리스트나 안전 인증 결과가 아니다. ]]></description>
+    <pubDate>Tue, 06 Oct 2026 15:00:00 GMT</pubDate>
   </item>
     </channel>
   </rss>
